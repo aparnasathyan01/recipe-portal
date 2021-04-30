@@ -19,7 +19,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/client-side/food.php">Food Recipes</a>
+          <a class="navbar-brand" href="food.php">Food Recipes</a>
         </div>
         <?php
         session_start();
