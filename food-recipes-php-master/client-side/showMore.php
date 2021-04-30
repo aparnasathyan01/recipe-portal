@@ -39,7 +39,7 @@
                 </div>
                 <br>';
     // get comments for database mysql
-    $getComments = mysqli_query($connect,"SELECT comments.name,comments.date,comments.text FROM comments INNER JOIN recipes ON comments.postID = $id ORDER BY comments.date DESC");
+    $getComments = mysqli_query($connect,"SELECT DISTINCT comments.name,comments.date,comments.text FROM comments INNER JOIN recipes ON comments.postID = $id ORDER BY comments.date DESC");
     while($comment = mysqli_fetch_array($getComments)){
       echo'<div class="Comments row">
             <div class="col-lg-3">
