@@ -1,7 +1,7 @@
 <title>Login</title>
 <div class="container loginForm  background-container col-sm-10 col-lg-4 col-lg-offset-4  col-sm-offset-1">
   <h2>Login</h2>
-  <form action="/" method="POST">
+  <form action="" method="POST">
     <div class="form-group loginInput">
       <input type="email" class="form-control" id="email" placeholder="Enter your email..." name="email" required>
     </div>
