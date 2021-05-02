@@ -1,8 +1,8 @@
 <?php
   // get conneciton database form config.php
   require 'config.php';
-  // insertUser to insert user JohnDoe with 123123123 password
-  $instertUser="INSERT INTO users (email,name,password) VALUES ('johndoe@gmail.com','John Doe','johndoe101')";
+  // insertUser to insert user  with 123123123 password
+  $instertUser="INSERT INTO users (email,name,password) VALUES ('johndoe@gmail.com','John Doe','e2a6613139fcd9a7b2589750fc09979a')";
   // insertData is for insert one user and some recipes at first time
   $instertData="INSERT INTO recipes (name,image,author,description,date) VALUES ('Porkolt (Hungarian Stew) Made With Pork','54726.jpg','John Doe','A flavorful stew, Pörkölt is redolent with the fragrance of paprika and bell peppers. It has few ingredients, and is surprisingly easy to make. Save time by using boneless pork chops and cubing them after they are browned. There should be enough salt in the canned tomatoes to season the stew, but if not, add more to your taste. Use best-quality, real Hungarian paprika for best results. We prefer to serve it with noodles, but galuska (Hungarian dumplings) or rice are good,too',
   now())
