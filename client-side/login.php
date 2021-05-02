@@ -3,12 +3,12 @@
   <h2>Login</h2>
   <form action="" method="POST">
     <div class="form-group loginInput">
-      <input type="email" class="form-control" id="email" placeholder="Enter your email..." name="email" required>
+      <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" required>
     </div>
     <div class="form-group loginInput">
-      <input type="password" class="form-control" id="password" placeholder="Enter your password..." name="password" required>
+      <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
     </div>
-    <button type="submit" name="login" class="btn greenBtn">LOGIN</button>
+    <button type="submit" name="login" class="btn btn-primary">LOGIN</button>
   </form>
   <label class="notReg">Not registered? </label><a href="" data-toggle="modal" data-target="#signUp"> Create account</a>
 </div>

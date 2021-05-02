@@ -18,7 +18,7 @@
   <div class="container">
     <center>
     <div class="row allRecipes">';
-    // check post if not have image then set default image
+    // check if post has image, if not then set default image
     while($post = mysqli_fetch_array($getPosts)){
       if(!$post['image']){
         $post['image']='defaultImage.jpg';
@@ -29,7 +29,7 @@
                 <p class="head">'.$post['name'].'</p><br>
                 <img src="uploads/'.$post['image'].'" ><br>
                 <div class="overlay">
-                  <div class="text">Date:'.$post['date'].'<p><br>By:'.$post['author'].'<br><br>Description:<br>'.$post['description'].'</p>
+                  <div class="text">Date:'.$post['date'].'<p><br>By:'.$post['author'].'</p>
                     <a class="post-btn" href="showMore.php?food='.$post['id'].'">Show more</a>
                   </div>
                 </div>

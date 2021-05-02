@@ -11,12 +11,12 @@
           <input type="file" class="form-control" id="file" name="image">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" id="name" placeholder="Enter food name..." name="name" required>
+          <input type="text" class="form-control" id="name" placeholder="Dish name" name="name" required>
         </div>
         <div class="form-group">
-          <textarea id="subject" class="form-control" name="description" placeholder="Enter your description..." style="height:200px"></textarea>
+          <textarea id="subject" class="form-control" name="description" placeholder="Enter recipe!" style="height:200px"></textarea>
         </div>
-        <button type="submit" name="addFood" class="btn greenBtn">Sign Up</button>
+        <button type="submit" name="addFood" class="btn btn-primary">Post!</button>
       </form>
       </div>
     </div>

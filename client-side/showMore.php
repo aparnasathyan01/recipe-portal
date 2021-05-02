@@ -12,6 +12,7 @@
     if(!$postInfo['image']){
       $postInfo['image']='defaultImage.jpg';
     }
+    
     // for set post name ,author,image , description and comment form
     echo '<title>'.$postInfo['name'].'</title>
     <div class="container">

@@ -1,32 +1,35 @@
 <div class="modal fade" id="signUp" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-primary">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
         <form action="" method="post">
         <div class="form-group">
-          <input type="text" class="form-control" id="name" placeholder="Enter your name..." name="name" required>
+          <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name" required>
         </div>
         <div class="form-group">
-          <input type="email" class="form-control" id="email" placeholder="Enter your email..." name="email" required>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" required>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" id="password" placeholder="Enter your password..." name="password" required>
+          <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" required>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" id="password2" placeholder="Re enter your password..." name="password2" required>
+          <input type="password" class="form-control" id="password2" placeholder="Re-enter your password" name="password2" required>
         </div>
+
         <div class="checkbox">
-          <label><input type="checkbox" name="autoLogin">Login after register ?</label>
+          <label><input type="checkbox" name="autoLogin">Login after register?</label>
         </div>
-        <button type="submit" name="signUp" class="btn greenBtn">Sign Up</button>
+        <button type="reset" name="resetsignUp" class="btn btn-primary">Reset</button>
+        <button type="submit" name="signUp" class="btn btn-primary">Sign Up</button>
       </form>
       </div>
     </div>
   </div>
 </div>
+
 <?php
   // error variable to count errors
   $error=0;

@@ -18,7 +18,7 @@
       });
     </script>
     <nav class="navbar navbar-inverse">
-      <div class="container-fluid bg-black">
+      <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="food.php">ReadyToCook</a>
         </div>

@@ -63,14 +63,6 @@
   1 (8 ounce) container frozen whipped topping, thawed
   ',now())
   ,
-  ('Coffee Flavored Fruit Dip','35678.jpg','John Doe','1 (8 ounce) package cream cheese, softened
-  1 (8 ounce) container sour cream
-  1/2 cup brown sugar
-
-  1/3 cup coffee-flavored liqueur
-  1 (8 ounce) container frozen whipped topping, thawed
-  ',now())
-  ,
   ('Fruit Dip VI','212033.jpg','John Doe','2 (8 ounce) packages cream cheese, softened
   1 cup brown sugar
 
