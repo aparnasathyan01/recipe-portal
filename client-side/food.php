@@ -6,11 +6,11 @@
   require 'addFood.php';
   // set default rows (to get only 12 post )
   $startRow=0;
-  $endtRow=12;
+  $endtRow=8;
   // check (show) parameter to display another items(12 post)
   if (isset($_GET['show'])) {
-    $startRow=($_GET['show']-1)*12;
-    $endtRow=($_GET['show']*12);
+    $startRow=($_GET['show']-1)*8;
+    $endtRow=($_GET['show']*8);
   }
   // get post sorted by date
   $getPosts = mysqli_query($connect,"SELECT * FROM recipes  ORDER BY date DESC limit $startRow,$endtRow");
@@ -47,7 +47,7 @@
       $row=0;
       for ($i=0;$i<=$count['0']-1;$i++) {
         $row++;
-        if($row===12){
+        if($row===8){
           $row=0;
           $pageNum++;
           // to set pagination
