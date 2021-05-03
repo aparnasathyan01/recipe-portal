@@ -72,7 +72,7 @@
       $GLOBALS['error']++;
       echo '<div class="col-sm-10 col-lg-4 col-lg-offset-4  col-sm-offset-1">
               <div class="alert alert-danger">
-                Passowrd dosnt match.
+                Password doesnt match.
               </div>
             </div>';
     }

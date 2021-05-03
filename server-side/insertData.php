@@ -4,7 +4,14 @@
   // insertUser to insert user  with 123123123 password
   $instertUser="INSERT INTO users (email,name,password) VALUES ('johndoe@gmail.com','John Doe','e2a6613139fcd9a7b2589750fc09979a')";
   // insertData is for insert one user and some recipes at first time
-  $instertData="INSERT INTO recipes (name,image,author,description,date) VALUES ('Porkolt (Hungarian Stew) Made With Pork','54726.jpg','John Doe','A flavorful stew, Pörkölt is redolent with the fragrance of paprika and bell peppers. It has few ingredients, and is surprisingly easy to make. Save time by using boneless pork chops and cubing them after they are browned. There should be enough salt in the canned tomatoes to season the stew, but if not, add more to your taste. Use best-quality, real Hungarian paprika for best results. We prefer to serve it with noodles, but galuska (Hungarian dumplings) or rice are good,too',
+  $instertData="INSERT INTO recipes (name,image,author,description,date) VALUES ('Juicy Roasted Chicken','1.jpg','John Doe',
+  'Ingredients: 1 (3 pound) whole chicken giblets removed, salt and black pepper to taste, 1 tablespoon onion powder (to taste),
+  ½ cup margarine (divided), 1 stalk celery (leaves removed) Recipe: Step 1: Preheat oven to 350 degrees F (175 degrees C).
+  Step 2: Place chicken in a roasting pan, and season generously inside and out with salt and pepper. Sprinkle inside and out with onion 
+  powder. Place 3 tablespoons margarine in the chicken cavity. Arrange dollops of the remaining margarine around the chickens exterior. 
+  Cut the celery into 3 or 4 pieces, and place in the chicken cavity.
+  Step 3: Bake uncovered 1 hour and 15 minutes in the preheated oven, to a minimum internal temperature of 180 degrees F (82 degrees C). 
+  Remove from heat, and baste with melted margarine and drippings. Cover with aluminum foil, and allow to rest about 30 minutes before serving.',
   now())
   ,
   ('Pasta Pomodoro','632125.jpg','John Doe','1 (16 ounce) package angel hair pasta
@@ -128,7 +135,8 @@
   1/4 teaspoon almond extract
   assorted food coloring
   ',now())";
-  // check if database have recipes or not
+
+  // check if database has recipes or not
   $checkData = mysqli_query($connect,"SELECT id FROM recipes");
   if(!$data = mysqli_fetch_array($checkData)){
     mysqli_query($connect,$instertUser);

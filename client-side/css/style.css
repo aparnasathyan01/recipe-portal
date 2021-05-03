@@ -142,8 +142,8 @@ body.modal-open .background-container{
   padding: 1px;
 }
 .postImage{
-  padding-left: 15px;
-  width: 400px;
+  margin-left: 30px;
+  width: 340px;
   height: 250px;
 }
 .postName{
@@ -157,6 +157,7 @@ body.modal-open .background-container{
   padding: 5px;
   height: fit-content;
 }
+
 /* comment input */
 .head input.postComment{
   width: 50%;
