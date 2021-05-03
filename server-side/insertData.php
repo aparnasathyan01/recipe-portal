@@ -6,7 +6,9 @@
   // insertData is for insert one user and some recipes at first time
   $instertData="INSERT INTO recipes (name,image,author,description,date) VALUES ('Juicy Roasted Chicken','1.jpg','John Doe',
   'Ingredients: 1 (3 pound) whole chicken giblets removed, salt and black pepper to taste, 1 tablespoon onion powder (to taste),
-  ½ cup margarine (divided), 1 stalk celery (leaves removed) Recipe: Step 1: Preheat oven to 350 degrees F (175 degrees C).
+  ½ cup margarine (divided), 1 stalk celery (leaves removed) 
+  Recipe: 
+  Step 1: Preheat oven to 350 degrees F (175 degrees C).
   Step 2: Place chicken in a roasting pan, and season generously inside and out with salt and pepper. Sprinkle inside and out with onion 
   powder. Place 3 tablespoons margarine in the chicken cavity. Arrange dollops of the remaining margarine around the chickens exterior. 
   Cut the celery into 3 or 4 pieces, and place in the chicken cavity.
@@ -14,33 +16,43 @@
   Remove from heat, and baste with melted margarine and drippings. Cover with aluminum foil, and allow to rest about 30 minutes before serving.',
   now())
   ,
-  ('Pasta Pomodoro','632125.jpg','John Doe','1 (16 ounce) package angel hair pasta
-  1/4 cup olive oil
-  1/2 onion, chopped
-  4 cloves garlic, minced
-  2 cups roma (plum) tomatoes, diced
-  2 tablespoons balsamic vinegar
+  ('Paneer Butter Masala','2.jpg','John Doe','Ingredients: ½ cup vegetable oil
+  ½ pound paneer (cut into 1/2-inch cubes), 2 tablespoons butter, 2 onions (finely chopped), 1 teaspoon ginger paste, 1 teaspoon garlic paste
+  1 tablespoon ground cashews, 1 teaspoon ground red chiles, ½ teaspoon ground cumin, ½ teaspoon ground coriander, ½ teaspoon garam masala
+  1 (8 ounce) can tomato sauce, ½ cup milk, ½ teaspoon white sugar, ½ teaspoon salt 
+  Recipe: 
+  Step 1: Heat oil in a large skillet over medium heat; 
+  fry paneer in 2 batches until golden, about 5 minutes. Transfer fried paneer to a paper towel-lined plate to drain, retaining vegetable oil in 
+  skillet. 
+  Step 2: Melt butter in the same skillet over medium heat; cook and stir onion until golden brown, about 10 minutes. Add ginger paste and garlic
+   paste. Continue to cook until fragrant, about 1 minute more. Stir cashews, ground red chiles, cumin, coriander, and garam masala into onion 
+  mixture. Cook and stir for 1 minute.
+  Step 3: Stir tomato sauce, half-and-half, milk, sugar, and salt into spice mixture; simmer until thickened, about 5 minutes. Reduce heat to low. 
+  Add fried paneer and simmer until heated through, about 5 minutes more.
   ',now())
   ,
-  ('Mediterranean Pasta','683300.jpg','John Doe','1 (8 ounce) package linguine pasta
-  3 slices bacon
-  1 pound boneless chicken breast half, cooked and diced
-  salt to taste
-  1 (14.5 ounce) can peeled and diced tomatoes with juice
-
-  1/4 teaspoon dried rosemary
-  1/3 cup crumbled feta cheese
-  2/3 cup pitted black olives
-  1 (6 ounce) can artichoke hearts, drained
-  ',now())
+  ('Onigiri Japanese Rice Balls','3.jpg','John Doe','Ingredients: 4 cups uncooked short-grain white rice, 4 ½ cups water, ¼ teaspoon salt, 
+  ¼ cup bonito shavings (dry fish flakes), 2 sheets nori (dry seaweed cut into 1/2-inch strips), 2 tablespoons sesame seeds
+  Recipe: 
+  Step 1: Wash the rice in a mesh strainer until the water runs clear. Combine washed rice and 4 1/2 cups water in a saucepan. Bring to a boil 
+  over high heat, stirring occasionally. Reduce heat to low; cover. Simmer rice until the water is absorbed, 15 to 20 minutes. Let rice rest, 
+  for 15 minutes to allow the rice to continue to steam and become tender. Allow cooked rice to cool.
+  Step 2: Combine 1 cup water with the salt in a small bowl. Use this water to dampen hands before handling the rice. Divide the cooked rice 
+  into 8 equal portions. Use one portion of rice for each onigiri.
+  Step 3: Divide one portion of rice in two. Create a dimple in the rice and fill with a heaping teaspoon of bonito flakes. Cover with the remaining 
+  portion of rice and press lightly to enclose filling inside rice ball. Gently press the rice to shape into a triangle. Wrap shaped onigiri with a 
+  strip of nori. Sprinkle with sesame seeds. Repeat to make a total of 8 onigiri.'
+  ,now())
   ,
-  ('Labneh (Lebanese Yogurt)','3707126.jpg','John Doe','1 1/2 cups Greek yogurt
-  1/4 cup extra-virgin olive oil
-  1 tablespoon chopped fresh mint
-
-  1 tablespoon chopped fresh dill
-  1/2 teaspoon kosher salt, or to taste
-
+  ('Plain Cake Doughnuts','4.jpg','John Doe','Ingredients: 2 cups all-purpose flour, ½ cup white sugar, 1 teaspoon salt, 1 tablespoon baking powder, 
+  ¼ teaspoon ground cinnamon, 1 dash ground nutmeg, 2 tablespoons melted butter, ½ cup milk, 1 egg (beaten), 1 quart oil for frying
+  Recipe:
+  Step 1: Heat oil in deep-fryer to 375 degrees F (190 degrees C).
+  Step 2: In a large bowl, sift together flour, sugar, salt, baking powder, cinnamon and nutmeg. Mix in butter until crumbly. Stir in milk and egg 
+  until smooth. Knead lightly, then turn out onto a lightly floured surface. Roll or pat to 1/4 inch thickness. Cut with a doughnut cutter, or use 
+  two round biscuit cutters of different sizes.
+  Step 3: Carefully drop doughnuts into hot oil, a few at a time. Do not overcrowd pan or oil may overflow. Fry, turning once, for 3 minutes or 
+  until golden. Drain on paper towels.
   ',now())
   ,
   ('Fresh Fruit Minty Dip','712299.jpg','John Doe','
