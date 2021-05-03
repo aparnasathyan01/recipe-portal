@@ -54,7 +54,7 @@
           <ul class="nav navbar-nav navbar-center">
             <form class="navbar-form navbar-right">
               <div class="form-group">
-                <input id="search" type="text" class="form-control" placeholder="Search recipes">
+                <input id="search" type="text" class="form-control mr-lg-5" placeholder="Search recipes">
               </div>
             </form>
         </ul>
@@ -64,6 +64,7 @@
         if(!isset($_GET['food'])){
           echo'<li><a href="#" data-toggle="modal" data-target="#addFood" >Add recipe</a></li>';
         }
+          echo '<li><a href="#">'.$_SESSION['name'].'</a>';
           // show logout  link
           echo'<li><a href="navbar.php?Logout=true"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         </ul>';
