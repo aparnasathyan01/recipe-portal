@@ -13,7 +13,9 @@
   date VARCHAR(20),
   image LONGBLOB NOT NULL,
   author VARCHAR(20),
-  description LONGTEXT
+  description LONGTEXT,
+  ingredients LONGTEXT 
+  -- apps
   )";
   // Comments table query
   $commentsTable = "CREATE TABLE IF NOT EXISTS comments (

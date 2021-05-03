@@ -14,6 +14,9 @@
           <input type="text" class="form-control" id="name" placeholder="Dish name" name="name" required>
         </div>
         <div class="form-group">
+          <textarea id="subject" class="form-control" name="ingredients" placeholder="Ingredients required" style="height:100px"></textarea>
+        </div>
+        <div class="form-group">
           <textarea id="subject" class="form-control" name="description" placeholder="Enter recipe!" style="height:200px"></textarea>
         </div>
         <button type="submit" name="addFood" class="btn btn-primary">Post!</button>
@@ -45,9 +48,10 @@ $Logedin=$_SESSION['Logedin'];
           // get information from post
         $image = $_FILES["image"]["name"];
         $name = $_POST['name'];
+        $ingredients = $_POST['ingredients'];
         $description = $_POST['description'];
         $author = $_SESSION['name'];
-        $insertRecipe = "INSERT INTO recipes (name,image,author,description,date) VALUES ('$name','$image','$author','$description',now())";
+        $insertRecipe = "INSERT INTO recipes (name,image,author,ingredients,description,date) VALUES ('$name','$image','$author','$ingredients','$description',now())";
         $data = mysqli_query ($connect,$insertRecipe);
         // check if post published
         if($data){

@@ -28,6 +28,9 @@
                     <img class="postImage" src="uploads/'.$postInfo['image'].'" " ><br>
                   </div>
                   <div class="col-lg-6">
+                    <p class="font-weight-bold">Ingredients</p>
+                    <p class="postDescription">'.$postInfo['ingredients'].'</p>
+                    <p class="font-weight-bold">Recipe</p>
                     <p class="postDescription">'.$postInfo['description'].'</p>
                   </div>
                 </div>
