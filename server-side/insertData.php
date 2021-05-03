@@ -7,7 +7,7 @@
   $instertData="INSERT INTO recipes (name,image,author,description,date) VALUES ('Juicy Roasted Chicken','1.jpg','John Doe',
   'Ingredients: 1 (3 pound) whole chicken giblets removed, salt and black pepper to taste, 1 tablespoon onion powder (to taste),
   ½ cup margarine (divided), 1 stalk celery (leaves removed) 
-  Recipe: 
+  Recipe:
   Step 1: Preheat oven to 350 degrees F (175 degrees C).
   Step 2: Place chicken in a roasting pan, and season generously inside and out with salt and pepper. Sprinkle inside and out with onion 
   powder. Place 3 tablespoons margarine in the chicken cavity. Arrange dollops of the remaining margarine around the chickens exterior. 
@@ -55,37 +55,58 @@
   until golden. Drain on paper towels.
   ',now())
   ,
-  ('Fresh Fruit Minty Dip','712299.jpg','John Doe','
-  2 cups Greek yogurt
-  1 teaspoon honey
-  1 teaspoon vanilla extract
-
-  1 teaspoon ground cinnamon
-  1/3 cup confectioners sugar
-  12 fresh mint leaves, chopped
+  ('Mutton Rogan Josh','5.jpg','John Doe','
+  Ingredients: 1 Kg meat, 1 cup mustard/refined oil, 3 tsp red chili powder, 3 tsp fennel powder, 2 tsp ginger powder, 2 tsp cumin powder, 3 tsp brown cardamom powder, 
+  1 tsp asafoetida, 4 Green cardamom, 2 Cinnamon sticks, 2 Bay leaves, 2 Cloves, 1/3 tsp saffron (optional), 1 cup curd, A pinch of salt.
+  Recipe: 
+  1.Wash the meat properly. Heat oil in a pressure cooker.
+  2.Put cinnamon, bay leaves, green cardamom, cloves, a teaspoon of salt, asafoetida, and meat together.
+  3.Fry meat till it turns brown. Once browned, pour a cup of water.
+  4.Add the red chili powder and saffron into the meat. Keep stirring for about a minute.
+  5.Mix the curd nicely in the mixer and pour it into the pressure cooker.
+  6.Keep on stirring till you get a reddish tinge.
+  7.Add 2 cups of water, fennel powder, ginger powder, and pressure cook for 2 minutes.
+  8.Check if the meat is tender. Peel and grind green and brown cardamom and add to the meat dish.
+  9.Finally sprinkle cumin powder and simmer for a minute and serve.
   ',now())
   ,
-  ('Pink Fruit Dip','211613.jpg','John Doe','
-  2 (6 ounce) containers vanilla yogurt
-  1 cup mayonnaise
-  1 cup sour cream
-
-  1/4 cup white sugar
-  1/4 cup grenadine
+  ('Broccoli Egg Burji','6.jpg','John Doe','
+  Ingredients: 
+  3 Whole Egg, 1 cup Broccoli florets (chopped into small pieces), 2 Onion (finely chopped), 2 Tomatoes (finely chopped), 6 Garlic cloves (finely chopped), 
+  1 teaspoon Turmeric powder (Haldi), 2 teaspoon Red Chilli powder, 2 tablespoon Coriander (Dhania) Leaves (finely chopped), Salt (to taste), 
+  2 tablespoon Oil
+  Recipe:
+  To begin making Broccoli Egg Bhurji, heat oil in a frying pan or skillet and add finely chopped onions. When onion turns pinkish, add chopped garlic and 
+  sauté till the raw smell of garlic goes away. Once it is done, add the chopped tomatoes and sauté till it turns mushy.
+  Add broccoli florets and cook them for 10 minutes. After 10 minutes, add turmeric powder, red chilil powder, salt and mix everything well.
+  One by one break the eggs directly into the skillet. Mix well and wait for the eggs to cook. Once you see the eggs getting cooked, take a 
+  spatula and scramble it in the skillet. Scramble continuously till the eggs are finely minced and mixed well with the onion-tomato-broccoli 
+  mixture. Adjust salt according to your taste and garnish with chopped coriander leaves and again mix well. Switch off the gas and serve hot. 
   ',now())
   ,
-  ('Coffee Flavored Fruit Dip','35678.jpg','John Doe','1 (8 ounce) package cream cheese, softened
-  1 (8 ounce) container sour cream
-  1/2 cup brown sugar
-
-  1/3 cup coffee-flavored liqueur
-  1 (8 ounce) container frozen whipped topping, thawed
-  ',now())
-  ,
-  ('Fruit Dip VI','212033.jpg','John Doe','2 (8 ounce) packages cream cheese, softened
-  1 cup brown sugar
-
-  2 teaspoons vanilla extract
+  ('Kerala Fish Curry','7.jpg','John Doe','
+  Ingredients: 
+  To marinate the fish:- 
+  500 f Fish (Sliced), ½ tsp Turmeric Powder, 2 tsp Lemon Juice, ½ tsp Black pepper Powder, Salt to taste. 
+  For the curry:- 2 tbsp Coconut Oil ,1 tsp Mustard Seeds ,10-12 Curry Leaves, 3-4 Green Chillies (Slit into halves), 2 cups Onion (Thinly sliced),2 tsp Ginger (Finely chopped), 1 tsp Garlic (Chopped), 1 cup Tomato (Chopped),½ tsp Turmeric Powder,
+  Salt to taste, ½ tsp Black Pepper Powder, 1 tsp Red Chilli Powder, 200 ml Thin Coconut Milk, 300 ml Thick Coconut Milk, 1 tbsp Tamarind Paste, ½ tsp Kerala Garam Masala (Optional)
+  Recipe:
+  For marination:-
+  Add all the ingredients for marinating the fish in a bowl and mix well.
+  Marinate the fish for 30 minutes.
+  For the curry:-
+  Heat oil in a pan.
+  Slightly fry the marinated fish in the oil and take out on plate and keep aside.
+  In the remaining oil, add mustard seeds, curry leaves and green chililes and fry for a few seconds.
+  Add onion, ginger and garlic and fry till onion turn pinkish.
+  Add tomatoes and cook for a minute.
+  Add turmeric powder, salt, black pepper powder and red chilli powder and cook for a minute.
+  Add thin coconut milk and bring the curry to a boil.
+  Drop in the fish pieces once the curry comes to a boil.
+  Cook for 8-10 minutes.
+  Add thick coconut milk and tamarind paste and cook for a minute.
+  Add Kerala garam masala and mix well.
+  Serve hot with steamed rice.
   ',now())
   ,
   ('Loaded Queso Fundido','1810432.jpg','John Doe','1 cup chicken broth
