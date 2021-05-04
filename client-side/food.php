@@ -14,6 +14,7 @@
   }
   // get post sorted by date
   $getPosts = mysqli_query($connect,"SELECT * FROM recipes  ORDER BY date DESC limit $startRow,$endtRow");
+  $post['date'] = mysqli_query($connect, "SELECT CONVERT (DATE, GETDATE())");
   echo '<title>Recipes</title>
   <div class="container">
     <center>

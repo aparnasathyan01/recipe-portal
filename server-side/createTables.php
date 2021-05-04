@@ -10,7 +10,7 @@
   $recipesTable = "CREATE TABLE IF NOT EXISTS recipes (
   id INT(6) AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50),
-  date VARCHAR(20),
+  date DATE,
   image LONGBLOB NOT NULL,
   author VARCHAR(20),
   description LONGTEXT,
