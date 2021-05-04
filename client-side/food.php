@@ -4,13 +4,13 @@
   // get conneciton database form config.php
   require '../server-side/config.php';
   require 'addFood.php';
-  // set default rows (to get only 12 post )
+  // set default rows (to get only 9 post )
   $startRow=0;
-  $endtRow=8;
-  // check (show) parameter to display another items(12 post)
+  $endtRow=9;
+  // check (show) parameter to display another items(9 post)
   if (isset($_GET['show'])) {
-    $startRow=($_GET['show']-1)*8;
-    $endtRow=($_GET['show']*8);
+    $startRow=($_GET['show']-1)*9;
+    $endtRow=($_GET['show']*9);
   }
   // get post sorted by date
   $getPosts = mysqli_query($connect,"SELECT * FROM recipes  ORDER BY date DESC limit $startRow,$endtRow");
@@ -24,7 +24,7 @@
         $post['image']='defaultImage.jpg';
       }
       // each post in Recipes page
-      echo '<div class="col-lg-3 col-sm-10 col-xs-10 image">
+      echo '<div class="col-lg-4 col-sm-10 col-xs-10 image">
               <div class="post containerDiv">
                 <p class="head">'.$post['name'].'</p><br>
                 <img src="uploads/'.$post['image'].'" ><br>
@@ -47,7 +47,7 @@
       $row=0;
       for ($i=0;$i<=$count['0']-1;$i++) {
         $row++;
-        if($row===8){
+        if($row===9){
           $row=0;
           $pageNum++;
           // to set pagination
