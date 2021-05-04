@@ -1,5 +1,5 @@
 body{
-  background-color: rgb(14, 97, 129)  !important;
+  background-color: rgb(193, 223, 236)  !important;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -47,16 +47,16 @@ body.modal-open .background-container{
 /* design for Post */
 .post{
   margin-top: 20px;
-  background-color: white;
-  box-shadow: 5px 5px 25px 2px;
+  background-color: rgb(247, 252, 255);
+  box-shadow: 5px 5px 15px 2px;
   border: rgb(14, 70, 116);
   border-radius: 10% ;
 }
 .post img{
   width: 75%;
-  height: 160px;
+  height: 16em;
   margin-bottom: 20px;
-  border-radius: 10% ;
+  border-radius: 8% ;
   border: 1px #2a1086 solid;
 }
 .post .head{
@@ -67,6 +67,7 @@ body.modal-open .background-container{
 }
 /*  containerDiv is class for post */
 .containerDiv {
+  height: 25em;
   position: relative;
 }
 .containerDiv .head{
