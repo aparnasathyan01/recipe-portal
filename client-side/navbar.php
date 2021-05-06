@@ -37,7 +37,7 @@
             // Destroy user session
             session_unset();
             session_destroy();
-            header('Location: /');
+            header('Location: ../index.php');
           }
           // check if parameter Logout defined by click logout in navbar - then go to Logout function
           if (isset($_GET['Logout'])) {
