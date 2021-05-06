@@ -15,8 +15,7 @@
   author VARCHAR(20),
   description LONGTEXT,
   ingredients LONGTEXT 
-  -- apps
-  )";
+   )";
   // Comments table query
   $commentsTable = "CREATE TABLE IF NOT EXISTS comments (
   id INT(6) AUTO_INCREMENT PRIMARY KEY,
