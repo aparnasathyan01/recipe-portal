@@ -2,9 +2,9 @@
   // get conneciton database form config.php
   require 'config.php';
   // insertUser to insert user  with 123123123 password
-  $instertUser="INSERT INTO users (email,name,password) VALUES ('johndoe@gmail.com','John Doe','e2a6613139fcd9a7b2589750fc09979a')";
+  $insertUser="INSERT INTO users (email,name,password) VALUES ('johndoe@gmail.com','John Doe','e2a6613139fcd9a7b2589750fc09979a')";
   // insertData is for insert one user and some recipes at first time
-  $instertData="INSERT INTO recipes (name,image,author,ingredients, description,date) VALUES ('Juicy Roasted Chicken','1.jpg','John Doe',
+  $insertData="INSERT INTO recipes (name,image,author,ingredients, description,date) VALUES ('Juicy Roasted Chicken','1.jpg','John Doe',
   '1 (3 pound) whole chicken giblets removed, salt and black pepper to taste, 1 tablespoon onion powder (to taste),
   ½ cup margarine (divided), 1 stalk celery (leaves removed)', '
   Step 1: Preheat oven to 350 degrees F (175 degrees C).
@@ -142,7 +142,7 @@
   // check if database has recipes or not
   $checkData = mysqli_query($connect,"SELECT id FROM recipes");
   if(!$data = mysqli_fetch_array($checkData)){
-    mysqli_query($connect,$instertUser);
-    mysqli_query($connect,$instertData);
+    mysqli_query($connect,$insertUser);
+    mysqli_query($connect,$insertData);
   };
 ?>

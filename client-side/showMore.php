@@ -66,7 +66,7 @@
   function addComment(){
     // get conneciton database form config.php
     require '../server-side/config.php';
-    $id=$GLOBALS['id'];
+    $id= $GLOBALS['id'];
     $name =   $_SESSION['name'];
     $postText = $_POST['commentText'];
     $querybb = "INSERT INTO comments (name,text,postID,date) VALUES ('$name','$postText','$id',now())";
