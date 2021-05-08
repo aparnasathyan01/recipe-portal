@@ -28,7 +28,7 @@
             </form></div><br>';
 
             if(isset($_POST['submitdelete'])){
-              $dd = "DELETE FROM recipes WHERE id='$id'";
+              $dd = "DELETE FROM recipes WHERE id='$id' AND author='$_SESSION[name]'";
               $deletecomment = mysqli_query ($connect,"DELETE FROM comments WHERE comments.postID='$id'");
               $deletepost = mysqli_query ($connect,$dd);
               header('Location: ./food.php');
