@@ -64,7 +64,7 @@
         if(!isset($_GET['food'])){
           echo'<li><a href="#" data-toggle="modal" data-target="#addFood" >Add recipe</a></li>';
         }
-          echo '<li><a href="#">'.$_SESSION['name'].'</a>';
+          echo '<li><a href="profile.php">'.$_SESSION['name'].'</a>';
           // show logout  link
           echo'<li><a href="navbar.php?Logout=true"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         </ul>';
