@@ -20,12 +20,13 @@
       <div class="row">
         <div class="col-lg-8 col-sm-10 col-xs-10 col-lg-offset-2">
           <div class="postInfo">
-            <div class="head"><h3>Author : '.$postInfo['author'].'</h3>';
+            <div class="head"><h3>Author: '.$postInfo['author'].'</h3></div>';
 
           // delete recipe button added
-            echo '<form method="POST" action="#">
-            <input type="submit" name="submitdelete" value = "Delete Recipe">
-            </form></div><br>';
+          if($postInfo['author'] === $_SESSION['name']){
+            echo '<div class="head"><form method="POST" action="#">
+            <input type="submit" name="submitdelete" class= "btn btn-danger" value = "Delete Recipe">
+            </form></div>';
 
             if(isset($_POST['submitdelete'])){
               $dd = "DELETE FROM recipes WHERE id='$id' AND author='$_SESSION[name]'";
@@ -33,6 +34,7 @@
               $deletepost = mysqli_query ($connect,$dd);
               header('Location: ./food.php');
             }
+          }
             //delete recipe button over
 
               echo '<div ><h2 class="postName">'.$postInfo['name'].'</h2></div>

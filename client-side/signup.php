@@ -19,9 +19,9 @@
           <input type="password" class="form-control" id="password2" placeholder="Re-enter your password" name="password2" required>
         </div>
 
-        <div class="checkbox">
+        <!-- <div class="checkbox">
           <label><input type="checkbox" name="autoLogin">Login after register?</label>
-        </div>
+        </div> -->
         <button type="reset" name="resetsignUp" class="btn btn-primary">Reset</button>
         <button type="submit" name="signUp" class="btn btn-primary">Sign Up</button>
       </form>
@@ -48,17 +48,18 @@
   	if($data){
        // session_start();
        // auto login after signUp if checkbox is checked
-       if(isset($_POST['autoLogin'])){
-         if($_POST['autoLogin']){
-           $_SESSION['user'] = $data['id'];
-           $_SESSION['name'] = $data['name'];
-           $_SESSION['Logedin']=1;
-           header('Location: client-side/food.php');
-        }
-      }
+      //  if(isset($_POST['autoLogin'])){
+      //    if($_POST['autoLogin']){
+      //      $_SESSION['user'] = $data['id'];
+      //      $_SESSION['name'] = $data['name'];
+      //      $_SESSION['Logedin']=1;
+      //      header('Location: client-side/food.php');
+      //   }
+      // }
+      
   	   echo '<div class="col-sm-10 col-lg-4 col-lg-offset-4  col-sm-offset-1">
               <div class="alert alert-success">
-                <strong>Success!</strong> Your registration is completed.
+                <strong>Success!</strong> Your registration is complete.
               </div>
             </div>';
   	}

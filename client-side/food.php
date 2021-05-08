@@ -14,7 +14,6 @@
   }
   // get post sorted by date
   $getPosts = mysqli_query($connect,"SELECT * FROM recipes  ORDER BY date DESC limit $startRow,$endtRow");
-  $post['date'] = mysqli_query($connect, "SELECT CONVERT (DATE, GETDATE())");
   echo '<title>Recipes</title>
   <div class="container">
     <center>
@@ -48,7 +47,7 @@
       $row=0;
       for ($i=0;$i<=$count['0']-1;$i++) {
         $row++;
-        if($row===9){
+        if($row===10){
           $row=0;
           $pageNum++;
           // to set pagination

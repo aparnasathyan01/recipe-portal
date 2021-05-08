@@ -8,6 +8,7 @@
     <div class="container">
       <center>
           <div class="postInfo">
-            <div class="head"><h3>NAME</h3></div><br><br><br>
+            <div class="head"><h3>'.$_SESSION['name'].'</h3></div>
+            <br><br><br>
                 <br></div></div>';
  ?>
