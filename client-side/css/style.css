@@ -163,12 +163,6 @@ body.modal-open .background-container{
   height: fit-content;
 }
 
-.userImg{
-  height: 25px;
-  width: 25px;
-  border-radius: 25px;
-}
-
 /* comment input */
 .head input.postComment{
   width: 50%;
