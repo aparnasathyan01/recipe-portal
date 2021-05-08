@@ -20,8 +20,22 @@
       <div class="row">
         <div class="col-lg-8 col-sm-10 col-xs-10 col-lg-offset-2">
           <div class="postInfo">
-            <div class="head"><h3>Author : '.$postInfo['author'].'</h3></div><br>
-              <div ><h2 class="postName">'.$postInfo['name'].'</h2></div>
+            <div class="head"><h3>Author : '.$postInfo['author'].'</h3>';
+
+          // delete recipe button added
+            echo '<form method="POST" action="#">
+            <input type="submit" name="submitdelete" value = "Delete Recipe">
+            </form></div><br>';
+
+            if(isset($_POST['submitdelete'])){
+              $dd = "DELETE FROM recipes WHERE id='$id' AND author='$_SESSION[name]'";
+              $deletecomment = mysqli_query ($connect,"DELETE FROM comments WHERE comments.postID='$id'");
+              $deletepost = mysqli_query ($connect,$dd);
+              header('Location: ./food.php');
+            }
+            //delete recipe button over
+
+              echo '<div ><h2 class="postName">'.$postInfo['name'].'</h2></div>
                 <br>
                 <div class="row">
                   <div class="col-lg-6">
