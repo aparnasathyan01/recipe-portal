@@ -45,18 +45,7 @@
   	$insertUser = "INSERT INTO users (name,email,password) VALUES ('$name','$email','$password')";
   	$data = mysqli_query ($connect,$insertUser);
     // check if user is inserted in database
-  	if($data){
-       // session_start();
-       // auto login after signUp if checkbox is checked
-      //  if(isset($_POST['autoLogin'])){
-      //    if($_POST['autoLogin']){
-      //      $_SESSION['user'] = $data['id'];
-      //      $_SESSION['name'] = $data['name'];
-      //      $_SESSION['Logedin']=1;
-      //      header('Location: client-side/food.php');
-      //   }
-      // }
-      
+  	if($data){      
   	   echo '<div class="col-sm-10 col-lg-4 col-lg-offset-4  col-sm-offset-1">
               <div class="alert alert-success">
                 <strong>Success!</strong> Your registration is complete.

@@ -69,7 +69,7 @@
   3 Whole Egg, 1 cup Broccoli florets (chopped into small pieces), 2 Onion (finely chopped), 2 Tomatoes (finely chopped), 6 Garlic cloves (finely chopped), 
   1 teaspoon Turmeric powder (Haldi), 2 teaspoon Red Chilli powder, 2 tablespoon Coriander (Dhania) Leaves (finely chopped), Salt (to taste), 
   2 tablespoon Oil','
-  <br/>:
+  <br/>
   <br/>To begin making Broccoli Egg Bhurji, heat oil in a frying pan or skillet and add finely chopped onions. When onion turns pinkish, add chopped garlic and 
   sauté till the raw smell of garlic goes away. Once it is done, add the chopped tomatoes and sauté till it turns mushy.
   Add broccoli florets and cook them for 10 minutes. After 10 minutes, add turmeric powder, red chilil powder, salt and mix everything well.
