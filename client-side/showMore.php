@@ -37,18 +37,21 @@
           }
             //delete recipe button over
 
-              echo '<div ><h2 class="postName">'.$postInfo['name'].'</h2></div>
+              echo '<div><h2 class="postName">'.$postInfo['name'].'</h2></div>
                 <br>
                 <div class="row">
                   <div class="col-lg-6">
                     <img class="postImage" src="uploads/'.$postInfo['image'].'" " ><br>
                   </div>
                   <div class="col-lg-6">
-                    <p class="font-weight-bold">Ingredients</p>
+                    <p class="font-weight-bold" style = "font-size: 20px">Ingredients</p>
                     <p class="postDescription">'.$postInfo['ingredients'].'</p>
-                    <p class="font-weight-bold">Recipe</p>
+                    <p class="font-weight-bold" style = "font-size: 20px">Recipe</p>
                     <p class="postDescription">'.$postInfo['description'].'</p>
                   </div>
+                  <form method="POST" action="#">
+                  <input type="submit" name="submitLikes" class= "btn btn-primary" value = "Like">
+                  </form>
                 </div>
                 <br>
                 <div class="head">
