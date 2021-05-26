@@ -14,7 +14,7 @@
   image LONGBLOB NOT NULL,
   author VARCHAR(20),
   description LONGTEXT,
-  ingredients LONGTEXT 
+  ingredients LONGTEXT
    )";
   // Comments table query
   $commentsTable = "CREATE TABLE IF NOT EXISTS comments (
@@ -25,8 +25,17 @@
   postID INT(6),
    FOREIGN KEY (postID) REFERENCES recipes(id)
   )";
+  $likesTable = "CREATE TABLE IF NOT EXISTS likes (
+  userID INT(6),
+   FOREIGN KEY (userID) REFERENCES users(id),
+  postID INT(6),
+   FOREIGN KEY (postID) REFERENCES recipes(id),
+  PRIMARY KEY (userID, postID)
+  )";
+
   // call connect and make the query
   mysqli_query($connect,$usersTable);
   mysqli_query($connect,$recipesTable);
   mysqli_query($connect,$commentsTable);
+  mysqli_query($connect,$likesTable);
 ?>
