@@ -57,5 +57,11 @@
   // close tag for end page
   echo '</ul>
         </center>
-        </div>';
+        </div>
+        <br/><br/>
+        <!-- Footer -->
+        <div class="footer">
+          <p>© 2021 Copyright: AICA</p>
+        </div>
+        <!-- Footer -->';
  ?>
