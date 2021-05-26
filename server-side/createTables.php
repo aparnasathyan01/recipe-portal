@@ -26,6 +26,7 @@
    FOREIGN KEY (postID) REFERENCES recipes(id)
   )";
   $likesTable = "CREATE TABLE IF NOT EXISTS likes (
+  valueL INT DEFAULT 0,
   userID INT(6),
    FOREIGN KEY (userID) REFERENCES users(id),
   postID INT(6),

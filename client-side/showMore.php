@@ -49,16 +49,27 @@
                     <p class="postDescription">'.$postInfo['description'].'</p>
                   </div></div>';
                 
-                  $getLikesInfo = mysqli_query($connect, "SELECT COUNT(userID) FROM likes GROUP BY postID HAVING postID =" . $postInfo['id']);
+                  $getLikesInfo = mysqli_query($connect, "SELECT COUNT(valueL) FROM likes WHERE valueL=1 GROUP BY postID HAVING postID =" . $postInfo['id']);
                   if($likes = mysqli_fetch_assoc($getLikesInfo)){
-                    echo '<form method="POST" action="#">
-                    <input type="submit" name="submitLikes" class= "btn btn-primary" value = "Like"> '.$likes["COUNT(userID)"].'
-                    </form>';
+                    echo '<div class="col-xs-3"><form method="POST" action="">
+                    <input type="submit" name="submitLikes" class= "btn btn-primary" value = "Like"> '.$likes["COUNT(valueL)"].'
+                    </form></div>';
                   }
                   else{
-                    echo '<form method="POST" action="#">
+                    echo '<div class="col-xs-3"><form method="POST" action="#">
                   <input type="submit" name="submitLikes" class= "btn btn-primary" value = "Like"> 0
-                  </form>';
+                  </form></div>';
+                  }
+                  $getDislikesInfo = mysqli_query($connect, "SELECT COUNT(valueL) FROM likes WHERE valueL=-1 GROUP BY postID HAVING postID =" . $postInfo['id']);
+                  if($dislikes = mysqli_fetch_assoc($getDislikesInfo)){
+                    echo '<div class="col-xs-3"><form method="POST" action="#">
+                    <input type="submit" name="submitDislikes" class= "btn btn-danger" value = "Dislike"> '.$dislikes["COUNT(valueL)"].'
+                    </form></div>';
+                  }
+                  else{
+                    echo '<div class="col-xs-3"><form method="POST" action="#">
+                  <input type="submit" name="submitDislikes" class= "btn btn-danger" value = "Dislike"> 0
+                  </form></div>';
                   }
                 echo '
                 <br>
@@ -111,11 +122,37 @@
     require '../server-side/config.php';
     $Gid= $GLOBALS['id'];
     $Uid = $_SESSION['user'];
-    $querybb = "INSERT INTO likes (userID, postID) VALUES ('$Uid', '$Gid')";
+    $checkStatus = mysqli_query($connect, "SELECT * FROM likes WHERE userID='$Uid' AND postID='$Gid'");
+    $count = mysqli_num_rows($checkStatus);
+    if($count>0){
+      $querybb = "UPDATE likes SET valueL = '1' WHERE userID='$Uid' AND postID= '$Gid'";
+    }
+    else{
+      $querybb = "INSERT INTO likes (valueL, userID, postID) VALUES ('1','$Uid', '$Gid')";
+    }
     $insert=mysqli_query ($connect,$querybb);
   }
   // call addComment function when form post
   if(isset($_POST['submitLikes'])){
     submitLikes();
+  }
+  function submitDislikes(){
+    // get conneciton database form config.php
+    require '../server-side/config.php';
+    $Gid= $GLOBALS['id'];
+    $Uid = $_SESSION['user'];
+    $checkStatus = mysqli_query($connect, "SELECT * FROM likes WHERE userID='$Uid' AND postID='$Gid'");
+    $count = mysqli_num_rows($checkStatus);
+    if($count>0){
+      $querybb = "UPDATE likes SET valueL = '-1' WHERE userID='$Uid' AND postID= '$Gid'";
+    }
+    else{
+      $querybb = "INSERT INTO likes (valueL, userID, postID) VALUES ('-1','$Uid', '$Gid')";
+    }
+    $insert=mysqli_query ($connect,$querybb);
+  }
+  // call addComment function when form post
+  if(isset($_POST['submitDislikes'])){
+    submitDislikes();
   }
 ?>
