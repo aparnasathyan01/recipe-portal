@@ -14,7 +14,10 @@
   }
   // get post sorted by date
   $getPosts = mysqli_query($connect,"SELECT * FROM recipes  ORDER BY date DESC limit $startRow,$endtRow");
-  echo '<title>Recipes</title>
+  echo '<html>
+  <title>Recipes</title>
+  <body>
+  <div id="page-container">
   <div class="container">
     <center>
     <div class="row allRecipes">';
@@ -63,5 +66,8 @@
         <div class="footer">
           <p>© 2021 Copyright: AICA</p>
         </div>
+        </div>
+        </body>
+        </html>
         <!-- Footer -->';
  ?>
