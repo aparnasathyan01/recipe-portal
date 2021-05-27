@@ -15,7 +15,7 @@
     
     // for set post name ,author,image , description and comment form
     echo '<title>'.$postInfo['name'].'</title>
-    <div class="container">
+    <div class="container" style="margin-top: 20px;">
       <center>
       <div class="row">
         <div class="col-lg-8 col-sm-10 col-xs-10 col-lg-offset-2">
@@ -45,29 +45,29 @@
                   <div class="col-lg-6">
                     <p class="font-weight-bold" style = "font-size: 20px">Ingredients</p>
                     <p class="postDescription">'.$postInfo['ingredients'].'</p>
-                    <p class="font-weight-bold" style = "font-size: 20px">Recipe</p>
-                    <p class="postDescription">'.$postInfo['description'].'</p>
-                  </div></div>';
+                  </div></div>
+                  <p class="font-weight-bold" style = "font-size: 20px; margin-top: 6px;">Recipe</p>
+                  <p class="postDescription">'.$postInfo['description'].'</p><br/>';
                 
                   $getLikesInfo = mysqli_query($connect, "SELECT COUNT(valueL) FROM likes WHERE valueL=1 GROUP BY postID HAVING postID =" . $postInfo['id']);
                   if($likes = mysqli_fetch_assoc($getLikesInfo)){
-                    echo '<div class="col-xs-3"><form method="POST" action="">
+                    echo '<div class="col-xs-1"><form method="POST" action="">
                     <input type="submit" name="submitLikes" class= "btn btn-primary" value = "Like"> '.$likes["COUNT(valueL)"].'
                     </form></div>';
                   }
                   else{
-                    echo '<div class="col-xs-3"><form method="POST" action="#">
+                    echo '<div class="col-xs-1"><form method="POST" action="#">
                   <input type="submit" name="submitLikes" class= "btn btn-primary" value = "Like"> 0
                   </form></div>';
                   }
                   $getDislikesInfo = mysqli_query($connect, "SELECT COUNT(valueL) FROM likes WHERE valueL=-1 GROUP BY postID HAVING postID =" . $postInfo['id']);
                   if($dislikes = mysqli_fetch_assoc($getDislikesInfo)){
-                    echo '<div class="col-xs-3"><form method="POST" action="#">
+                    echo '<div class="col-xs-1"><form method="POST" action="#">
                     <input type="submit" name="submitDislikes" class= "btn btn-danger" value = "Dislike"> '.$dislikes["COUNT(valueL)"].'
                     </form></div>';
                   }
                   else{
-                    echo '<div class="col-xs-3"><form method="POST" action="#">
+                    echo '<div class="col-xs-1"><form method="POST" action="#">
                   <input type="submit" name="submitDislikes" class= "btn btn-danger" value = "Dislike"> 0
                   </form></div>';
                   }
@@ -80,8 +80,7 @@
                     <input name="commentText" class="postComment" type="text" required/>
                     <input type="submit" value="comment" name="addComment"/>
                   </form>
-                </div></div></div>
-                <br>';
+                </div></div></div>';
     // get comments for database mysql
     $getComments = mysqli_query($connect,"SELECT DISTINCT comments.name,comments.date,comments.text FROM comments INNER JOIN recipes ON comments.postID = $id ORDER BY comments.date DESC");
     while($comment = mysqli_fetch_array($getComments)){
