@@ -35,7 +35,7 @@
   $error=0;
   //  Function NewUser to add user to database
   function NewUser(){
-    // get conneciton database form config.php
+    // get connection database form config.php
     require "server-side/config.php";
     //  get infromation from post
   	$name = $_POST['name'];
@@ -46,16 +46,12 @@
   	$data = mysqli_query ($connect,$insertUser);
     // check if user is inserted in database
   	if($data){      
-  	   echo '<div class="col-sm-10 col-lg-4 col-lg-offset-4  col-sm-offset-1">
-              <div class="alert alert-success">
-                <strong>Success!</strong> Your registration is complete.
-              </div>
-            </div>';
+      header('Location: index.php?error=none');
   	}
   }
   // function checkUser to check post information
   function checkUser(){
-    // get conneciton database form config.php
+    // get connection database form config.php
     require "server-side/config.php";
     // check if password fields match
     if(($_POST['password'])!==($_POST['password2'])){

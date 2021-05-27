@@ -28,7 +28,7 @@
 <?php
 $Logedin=$_SESSION['Logedin'];
   function addFood(){
-    // get conneciton database form config.php
+    // get connection database form config.php
     require "../server-side/config.php";
     // check if image name already added to database
     if (isset($_FILES["image"]["name"])) {
