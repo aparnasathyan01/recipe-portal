@@ -1,4 +1,5 @@
 <title>Login</title>
+<div class = "login-background" style="height: 100%;">
 <div class="container loginForm  background-container col-sm-10 col-lg-4 col-lg-offset-4  col-sm-offset-1">
   <h2>Login</h2>
   <form action="" method="POST">
@@ -13,6 +14,7 @@
   <label class="notReg">Not registered? </label><a href="" data-toggle="modal" data-target="#signUp"> Create account</a>
 </div>
 <br>
+</div>
 <?php
 // check if user is logedin
   if(isset($_SESSION['Logedin'])){

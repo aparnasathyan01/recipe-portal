@@ -18,7 +18,7 @@
         });
       });
     </script>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse" style = "margin-bottom: 0px;">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="food.php">ReadyToCook</a>
