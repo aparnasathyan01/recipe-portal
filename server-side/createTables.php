@@ -6,6 +6,7 @@
   email VARCHAR(50),
   password VARCHAR(50)
   )";
+  
   // Recipes table query
   $recipesTable = "CREATE TABLE IF NOT EXISTS recipes (
   id INT(6) AUTO_INCREMENT PRIMARY KEY,
@@ -16,6 +17,7 @@
   description LONGTEXT,
   ingredients LONGTEXT
    )";
+
   // Comments table query
   $commentsTable = "CREATE TABLE IF NOT EXISTS comments (
   id INT(6) AUTO_INCREMENT PRIMARY KEY,
@@ -25,6 +27,7 @@
   postID INT(6),
    FOREIGN KEY (postID) REFERENCES recipes(id)
   )";
+
   $likesTable = "CREATE TABLE IF NOT EXISTS likes (
   valueL INT DEFAULT 0,
   userID INT(6),
