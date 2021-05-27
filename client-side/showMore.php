@@ -155,4 +155,3 @@
   if(isset($_POST['submitDislikes'])){
     submitDislikes();
   }
-?>

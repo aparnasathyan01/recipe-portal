@@ -1,6 +1,6 @@
 body{
   /* background-color: rgb(54, 54, 54)  !important; */
-  background-image: url("../uploads/bg.jpg");
+  background-image: url("../uploads/bg4.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
@@ -15,9 +15,10 @@ body{
 /* Login form */
 .loginForm{
   padding: 35px !important;
-  margin-top: 130px;
+  margin-top: 150px;
   background-color: white;
   box-shadow: 5px 5px 25px 5px;
+  border-radius: 20px;
 }
 
 /* .form-group.loginInput input for from input  */
@@ -185,11 +186,11 @@ body.modal-open .background-container{
 }
 /* style for Comments */
 .Comments{
-  background-color: #75C25A;
+  background-color: #c0eefa;
   padding: 10px;
   margin-left: 10px;
   margin-right: 10px;
-  border: 2.5px #5fcb00 solid;
+  border: 2.5px #065063 solid;
 }
 hr{
   border-top: 1px  #5fcb00 solid;
@@ -202,8 +203,8 @@ hr{
   border-radius: 25px;
 }
 /* navbar */
-.navbar.navbar-inverse a{
-  color: #cddeec !important;
+.navbar a{
+  color: #ffffff !important;
 }
 /* signUp form */
 #signup.modal .form-group input{
@@ -236,6 +237,11 @@ hr{
   color: white;
   text-align: center;
   font-size: medium;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+  text-decoration: none;
+  background-color: transparent !important;
 }
 
 #page-container {

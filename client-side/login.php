@@ -1,5 +1,5 @@
 <title>Login</title>
-<div class = "login-background" style="height: 100%;">
+<div class = "login-background" style="height: 93%;">
 <div class="container loginForm  background-container col-sm-10 col-lg-4 col-lg-offset-4  col-sm-offset-1">
   <h2>Login</h2>
   <?php

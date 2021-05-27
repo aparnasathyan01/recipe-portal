@@ -18,7 +18,7 @@
         });
       });
     </script>
-    <nav class="navbar navbar-light" style="background-color: #1c1c1c; margin-bottom: 0px;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: rgb(37, 37, 37); margin-bottom: 0px;">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="food.php">ReadyToCook</a>
@@ -62,10 +62,10 @@
         <ul class="nav navbar-nav navbar-right">
         ';
         // check food parameter is set to show add recipe - not show when open post information
-        if(!isset($_GET['food'])){
+        if(!(isset($_GET['food'])||isset($_GET['user']))){
           echo'<li><a href="#" data-toggle="modal" data-target="#addFood" >Add recipe</a></li>';
-        }
-          echo '<li><a href="profile.php">'.$_SESSION['name'].'</a>';
+    }
+          echo '<li><a href="profile.php?user='.$_SESSION['name'].'">'.$_SESSION['name'].'</a>';
           // show logout  link
           echo'<li><a href="navbar.php?Logout=true"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         </ul>';
