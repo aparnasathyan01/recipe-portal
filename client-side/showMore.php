@@ -1,5 +1,5 @@
 <?php
-  // get conneciton database form config.php
+  // get connection database form config.php
   require '../server-side/config.php';
   require 'header.php';
   require 'navbar.php';
@@ -104,7 +104,7 @@
   // function to add comment
   }
   function addComment(){
-    // get conneciton database form config.php
+    // get connection database form config.php
     require '../server-side/config.php';
     $id= $GLOBALS['id'];
     $name = $_SESSION['name'];
@@ -118,7 +118,7 @@
   }
 
   function submitLikes(){
-    // get conneciton database form config.php
+    // get connection database form config.php
     require '../server-side/config.php';
     $Gid= $GLOBALS['id'];
     $Uid = $_SESSION['user'];
@@ -137,7 +137,7 @@
     submitLikes();
   }
   function submitDislikes(){
-    // get conneciton database form config.php
+    // get connection database form config.php
     require '../server-side/config.php';
     $Gid= $GLOBALS['id'];
     $Uid = $_SESSION['user'];

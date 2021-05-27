@@ -1,7 +1,7 @@
 <?php
   require 'navbar.php';
   require 'header.php';
-  // get conneciton database form config.php
+  // get connection database form config.php
   require '../server-side/config.php';
   require 'addFood.php';
   // set default rows (to get only 9 post )

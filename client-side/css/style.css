@@ -1,16 +1,21 @@
 body{
-  /* background-color: rgb(46, 46, 46)  !important; */
-  font-family: 'Roboto', sans-serif;
-  background-image: url("../uploads/background.jpg");
+  /* background-color: rgb(54, 54, 54)  !important; */
+  background-image: url("../uploads/bg.jpg");
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-background{
+  background-image: url("../uploads/background.jpg");
   background-size: cover;
 }
 
 /* Login form */
 .loginForm{
   padding: 35px !important;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin-top: 130px;
   background-color: white;
   box-shadow: 5px 5px 25px 5px;
 }
@@ -236,4 +241,10 @@ hr{
 #page-container {
   position: relative;
   min-height: 100vh;
+}
+
+.prof-container{
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 160px;
 }
