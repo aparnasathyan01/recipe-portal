@@ -20,7 +20,7 @@
       <div class="row">
         <div class="col-lg-8 col-sm-10 col-xs-10 col-lg-offset-2">
           <div class="postInfo">
-            <div class="head"><h3>Author: '.$postInfo['author'].'</h3></div>';
+            <div class="head"><h2 class="postName">'.$postInfo['name'].'</h2></div>';
 
           // delete recipe button added
           if($postInfo['author'] === $_SESSION['name']){
@@ -36,17 +36,17 @@
             }
           }
             //delete recipe button over
-              echo '<div><h2 class="postName">'.$postInfo['name'].'</h2></div>
+              echo '<h3 style="font-weight: bold;">Author: '.$postInfo['author'].'</h3>
                 <br>
                 <div class="row">
                   <div class="col-lg-6">
                     <img class="postImage" src="uploads/'.$postInfo['image'].'" " ><br>
                   </div>
                   <div class="col-lg-6">
-                    <p class="font-weight-bold" style = "font-size: 20px">Ingredients</p>
+                    <p style = "font-size: 20px; font-weight: bold;">Ingredients</p>
                     <p class="postDescription">'.$postInfo['ingredients'].'</p>
                   </div></div>
-                  <p class="font-weight-bold" style = "font-size: 20px; margin-top: 6px;">Recipe</p>
+                  <p style = "font-size: 20px; margin-top: 6px; font-weight: bold">Recipe</p>
                   <p class="postDescription">'.$postInfo['description'].'</p><br/>';
                 
                   $getLikesInfo = mysqli_query($connect, "SELECT COUNT(valueL) FROM likes WHERE valueL=1 GROUP BY postID HAVING postID =" . $postInfo['id']);

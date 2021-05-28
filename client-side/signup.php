@@ -82,11 +82,7 @@ function checkUser()
         NewUser();
       }
     } else {
-      echo '<div class="col-sm-10 col-lg-4 col-lg-offset-4  col-sm-offset-1">
-                <div class="alert alert-danger">
-                  This email already registered.
-                </div>
-              </div>';
+      header('Location: index.php?error=alreadyregistered');
     }
   }
 }

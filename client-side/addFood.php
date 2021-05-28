@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
       </div>
       <div class="modal-body">
         <form action="" method="post" enctype="multipart/form-data">
@@ -14,12 +14,12 @@
           <input type="text" class="form-control" id="name" placeholder="Dish name" name="name" required>
         </div>
         <div class="form-group">
-          <textarea id="subject" class="form-control" name="ingredients" placeholder="Ingredients required" style="height:100px"></textarea>
+          <textarea id="subject" class="form-control" name="ingredients" placeholder="Ingredients required" style="height:100px" required></textarea>
         </div>
         <div class="form-group">
-          <textarea id="subject" class="form-control" name="description" placeholder="Enter recipe!" style="height:200px"></textarea>
+          <textarea id="subject" class="form-control" name="description" placeholder="Enter recipe!" style="height:200px" required></textarea>
         </div>
-        <button type="submit" name="addFood" class="btn btn-primary">Post!</button>
+        <button type="submit" name="addFood" class="btn" style="background-color: #422929; color: white;">Post!</button>
       </form>
       </div>
     </div>
@@ -35,7 +35,7 @@ $Logedin=$_SESSION['Logedin'];
         $name = $_FILES["image"]["name"];
         $checkImage = mysqli_query($connect,"SELECT * FROM recipes WHERE image = '$name'");
         if($row = mysqli_fetch_array($checkImage)){
-          echo '<div class="container alert alert-danger">
+          echo '<div class="container alert alert-danger" style="margin-top: 10px;">
           Wrong! image name already exists</div>';
         }else{
           $tmp_name = $_FILES['image']['tmp_name'];
@@ -55,7 +55,7 @@ $Logedin=$_SESSION['Logedin'];
         $data = mysqli_query ($connect,$insertRecipe);
         // check if post published
         if($data){
-          echo '<div class="container alert alert-success">
+          echo '<div class="container alert alert-success" style="margin-top: 10px;">
           <strong>Success!</strong> published</div>';
         }
       }
