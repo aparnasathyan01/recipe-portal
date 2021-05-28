@@ -10,6 +10,9 @@
                     else if ($_GET["error"] == "none") {
                       echo '<p class="text-success" style="font-weight: bold; margin-top: 8px">Success! Your registration is complete!</p>';
                   }
+                    else if ($_GET["error"] == "alreadyregistered"){
+                      echo '<p class="text-danger" style="font-weight: bold; margin-top: 8px">Email is already registered. </p>';
+                    }
                 }
   ?>
   <form action="" method="POST">
@@ -42,7 +45,7 @@
     $email = $_POST['email'];
     $password =  md5($_POST['password']);
     // check user email and password match
-    $checkUser = mysqli_query($connect,"SELECT * FROM users WHERE email = '$_POST[email]' AND password='$password'");
+    $checkUser = mysqli_query($connect,"SELECT * FROM users WHERE email = '$email' AND password='$password'");
     $count = mysqli_num_rows($checkUser);
     // check if got no data from database
     if ($count == 0) {
