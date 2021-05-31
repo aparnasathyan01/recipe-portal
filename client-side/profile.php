@@ -15,16 +15,11 @@
             <p style="font-size: 25px; margin-top: 25px;"><label class="" for="Name">Name: </label><input type="name" class="form-control" style = "width: 50%; font-weight: bold;" id="name" placeholder=" '.$_SESSION['name'].' " name="name" disabled></p>
             <p style="font-size: 25px;"><label class="" for="Email">Email address: </label><input type="email" class="form-control" style = "width: 50%; font-weight: bold;" id="email" placeholder=" '.$_SESSION['mail'].' " name="email" disabled></p><br>
             <form action="" method="POST">
-            <button type="button" class="btn btn-primary" style="color: white; margin-bottom: 10px;" data-toggle="modal" data-target="#updateAccount">Update Account</button><br>
-            <input type="submit" name="delAccount" class= "btn btn-danger" value = "Delete Account" style="margin-bottom: 20px; padding: 6px 14px 6px 14px;"></div></div>
+            <input type="submit" name="delAccount" class= "btn btn-danger" value = "Delete Account" style="margin-bottom: 20px;"></div></div>
             </form>';
             if(isset($_POST['delAccount'])){
               delAccount();
             }          
-
-            if(isset($_POST['updateAccount'])){
-              updateAccount();
-            }   
 
   echo '</ul>
   </center>
@@ -39,27 +34,6 @@
   </html>
   <!-- Footer -->';
 
-  echo '<div class="modal fade" id="updateAccount" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
-      </div>
-      <div class="modal-body">
-      <form action="" method="post">
-      <div class="form-group">
-          <input type="text" class="form-control" placeholder="'.$_SESSION['name'].'" disabled>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="newName" placeholder="New name" name="newName" required>
-        </div>
-        <button type="submit" name="updateAccount" class="btn" style="background-color: #422929; color: white;">Update</button>
-      </form>
-      </div>
-    </div>
-  </div>
-</div>';
-
 function delAccount(){
   require '../server-side/config.php';
   $id = $_SESSION['user'];
@@ -73,19 +47,3 @@ function delAccount(){
   session_destroy();
   header('Location: ../index.php');
 }
-
-function updateAccount(){
-  require '../server-side/config.php';
-  // echo("Error description: 1" . mysqli_error($connect));
-  $Uid = $_SESSION['user'];
-  $oldName = $_SESSION['name'];
-  $updateName = $_POST['newName'];
-  $querybb = "UPDATE users SET name = '$updateName' WHERE id='$Uid'";
-  $queryRecipes = "UPDATE recipes SET author = '$updateName' WHERE author='$oldName'";
-  $update = mysqli_query($connect, $querybb);
-  $updateAuthor = mysqli_query($connect, $queryRecipes);
-  $_SESSION['name'] = $updateName;
-  header('Location: ../index.php');
-}
-
-?>

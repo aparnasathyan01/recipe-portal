@@ -3,8 +3,6 @@
   require '../server-side/config.php';
   require 'header.php';
   require 'navbar.php';
-  require 'updateRecipe.php';
-
   // get parameter to set id of post
   $id= $_GET['food'];
   // get post from mysql by id
@@ -26,10 +24,7 @@
 
           // delete recipe button added
           if($postInfo['author'] === $_SESSION['name']){
-            
-            echo '<div class="head">
-            <form method="POST" action="#">
-            <button type="button" class="btn btn-primary" style="color: white;" data-toggle="modal" data-target="#updateRecipe">Update Recipe</button>
+            echo '<div class="head"><form method="POST" action="#">
             <input type="submit" name="submitdelete" class= "btn btn-danger" value = "Delete Recipe">
             </form></div>';
 
