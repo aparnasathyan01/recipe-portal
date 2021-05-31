@@ -47,11 +47,13 @@
       </div>
       <div class="modal-body">
       <form action="" method="post">
-      <div class="form-group">
-          <input type="text" class="form-control" placeholder="'.$_SESSION['name'].'" disabled>
+        <div class="form-group">
+          <p style="font-weight: bold;">Name:</p>
+          <input type="text" class="form-control" id="newName" name="newName" value="'.$_SESSION['name'].'" required>
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" id="newName" placeholder="New name" name="newName" required>
+        <p style="font-weight: bold;">Mail:</p>
+        <input type="text" class="form-control" id="newMail" name="newMail" value="'.$_SESSION['mail'].'" required>
         </div>
         <button type="submit" name="updateAccount" class="btn" style="background-color: #422929; color: white;">Update</button>
       </form>
@@ -79,13 +81,15 @@ function updateAccount(){
   // echo("Error description: 1" . mysqli_error($connect));
   $Uid = $_SESSION['user'];
   $oldName = $_SESSION['name'];
+  $oldMail = $_SESSION['mail'];
   $updateName = $_POST['newName'];
-  $querybb = "UPDATE users SET name = '$updateName' WHERE id='$Uid'";
+  $updateMail = $_POST['newMail'];
+  $querybb = "UPDATE users SET name = '$updateName', email = '$updateMail' WHERE id='$Uid'";
   $queryRecipes = "UPDATE recipes SET author = '$updateName' WHERE author='$oldName'";
   $update = mysqli_query($connect, $querybb);
   $updateAuthor = mysqli_query($connect, $queryRecipes);
   $_SESSION['name'] = $updateName;
+  $_SESSION['mail'] = $updateMail;
   header('Location: ../index.php');
 }
-
 ?>

@@ -58,20 +58,12 @@ function checkUser()
   // check if password fields match
   if (($_POST['password']) !== ($_POST['password2'])) {
     $GLOBALS['error']++;
-    echo '<div class="col-sm-10 col-lg-4 col-lg-offset-4  col-sm-offset-1">
-              <div class="alert alert-danger">
-                Password doesnt match.
-              </div>
-            </div>';
+    header('Location: index.php?error=nomatch');
   }
   // check if password field less than 8 character
   if (strlen($_POST['password']) < 7) {
     $GLOBALS['error']++;
-    echo '<div class="col-sm-10 col-lg-4 col-lg-offset-4  col-sm-offset-1">
-              <div class="alert alert-danger">
-                Passowrd must be at least 8 characters.
-              </div>
-            </div>';
+    header('Location: index.php?error=passwordshort');
   }
   // check if email not empty in post
   if (!empty($_POST['email'])) {
