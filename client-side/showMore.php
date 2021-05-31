@@ -3,6 +3,7 @@
   require '../server-side/config.php';
   require 'header.php';
   require 'navbar.php';
+
   // get parameter to set id of post
   $id= $_GET['food'];
   // get post from mysql by id
@@ -23,17 +24,29 @@
             <div class="head"><h2 class="postName">'.$postInfo['name'].'</h2></div>';
 
           // delete recipe button added
+          
+          function submitdelete(){
+            require '../server-side/config.php';
+            $id= $_GET['food'];
+            $dd = "DELETE FROM recipes WHERE id='$id' AND author='$_SESSION[name]'";
+            $deletecomment = mysqli_query ($connect,"DELETE FROM comments WHERE postID='$id'");
+            $deletelikes = mysqli_query ($connect,"DELETE FROM likes WHERE postID='$id'");
+            $deletepost = mysqli_query ($connect,$dd);
+            header('Location: ../index.php');
+          }
+
+          if(isset($_POST['submitdelete'])){
+            submitdelete();
+          }
+          
           if($postInfo['author'] === $_SESSION['name']){
-            echo '<div class="head"><form method="POST" action="#">
+            
+            echo '<div class="head">
+            <form method="POST" action="#">
+            <button type="button" class="btn btn-primary" style="color: white;" data-toggle="modal" data-target="#updateRecipe">Update Recipe</button>
             <input type="submit" name="submitdelete" class= "btn btn-danger" value = "Delete Recipe">
             </form></div>';
 
-            if(isset($_POST['submitdelete'])){
-              $dd = "DELETE FROM recipes WHERE id='$id' AND author='$_SESSION[name]'";
-              $deletecomment = mysqli_query ($connect,"DELETE FROM comments WHERE comments.postID='$id'");
-              $deletepost = mysqli_query ($connect,$dd);
-              header('Location: ./food.php');
-            }
           }
             //delete recipe button over
               echo '<h3 style="font-weight: bold;">Author: '.$postInfo['author'].'</h3>
@@ -75,10 +88,10 @@
                 <br>
                 <div class="row">
                 <div class="col-lg-12">
-                <div class="head">
+                <div class="head" style="padding-top: 15px">
                   <form method="POST" action="#">
-                    <input name="commentText" class="postComment" type="text" required/>
-                    <input type="submit" value="comment" name="addComment"/>
+                    <input name="commentText" class="postComment" type="text" required/>&ensp;
+                    <input type="submit" name="addComment" class= "btn btn-primary" value = "Comment" style="margin-bottom: 3px; padding: 6px;">
                   </form>
                 </div></div></div>';
     // get comments for database mysql
@@ -86,12 +99,14 @@
     while($comment = mysqli_fetch_array($getComments)){
       echo'<div class="Comments row">
             <div class="col-lg-3">
-              <img class="PersonImg" src="https://www.w3schools.com/howto/img_avatar.png">
+              <img class="PersonImg" src="https://www.w3schools.com/howto/img_avatar.png">&emsp;
               '.$comment['name'].'<br>
             </div>
-            <div class="col-lg-9">
-              '.$comment['text'].'<br>
-              '.$comment['date'].'
+            <div class="col-lg-5" style="margin-top: 10px; text-align: justify;">
+            <p style="font-weight: bold;">'.$comment['text'].'</p>
+            </div>
+            <div class="col-lg-4" style="margin-top: 10px;">  
+            <p style="color: #ebcece;">'.$comment['date'].'</p>
             </div>
           </div>
           <hr/>';
@@ -154,3 +169,50 @@
   if(isset($_POST['submitDislikes'])){
     submitDislikes();
   }
+ 
+$getPostInfo = mysqli_query($connect,"SELECT * FROM recipes WHERE id='$id'");
+$postInfo = mysqli_fetch_array($getPostInfo);
+echo '
+<div class="modal fade" id="updateRecipe" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" style="color: white;">&times;</button>
+      </div>
+      <div class="modal-body">
+      <form action="" method="post">
+        <div class="form-group">
+        <p style="font-weight: bold;">Dish name: </p>
+          <input type="text" class="form-control" id="dishName" placeholder="Dish name" name="dishName" value="'.$postInfo['name'].'" required>
+        </div>
+        <div class="form-group">
+        <p style="font-weight: bold;">Ingredients: </p>
+          <textarea id="subject" class="form-control" name="ingredientsUpdate" placeholder="Ingredients required" style="height:100px" required>'.$postInfo['ingredients'].'</textarea>
+        </div>
+        <div class="form-group">
+        <p style="font-weight: bold;">Recipe: </p>
+          <textarea id="subject" class="form-control" name="descriptionUpdate" placeholder="Enter recipe!" style="height:200px" required>'.$postInfo['description'].'</textarea>
+        </div>
+        <button type="submit" name="updateRecipe" class="btn" style="background-color: #422929; color: white;">Update</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>';
+
+  if(isset($_POST['updateRecipe'])){
+    updateRecipe();
+  }
+
+  function updateRecipe(){
+    require "../server-side/config.php";
+    $id= $_GET['food'];
+    // echo("Error description: 1" . mysqli_error($connect));
+    $newDish = $_POST['dishName'];
+    $newIngredients = $_POST['ingredientsUpdate'];
+    $newRecipe = $_POST['descriptionUpdate'];
+    $querybb = "UPDATE recipes SET name='$newDish', ingredients = '$newIngredients', description = '$newRecipe' WHERE id='$id'";
+    $updateRecipe = mysqli_query($connect, $querybb);
+  }
+
+?>

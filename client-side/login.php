@@ -5,13 +5,22 @@
   <?php
                 if (isset($_GET["error"])) {
                     if ($_GET["error"] == "invaliddetails") {
-                        echo '<p class="text-danger" style="font-weight: bold; margin-top: 8px">Invalid Details</p>';
+                        echo '<p class="text-danger" style="font-weight: bold; margin-top: 8px">Invalid Details.</p>';
                     }
                     else if ($_GET["error"] == "none") {
                       echo '<p class="text-success" style="font-weight: bold; margin-top: 8px">Success! Your registration is complete!</p>';
                   }
                     else if ($_GET["error"] == "alreadyregistered"){
-                      echo '<p class="text-danger" style="font-weight: bold; margin-top: 8px">Email is already registered. </p>';
+                      echo '<p class="text-danger" style="font-weight: bold; margin-top: 8px">Email is already registered.</p>';
+                    }
+                    else if($_GET["error"] == "notregistered"){
+                      echo '<p class="text-danger" style="font-weight: bold; margin-top: 8px">Email is not registered. </p>';
+                    }
+                    else if($_GET["error"]=="passwordshort"){
+                      echo '<p class="text-danger" style="font-weight: bold; margin-top: 8px">Password must be at least 8 characters.</p>';
+                    }
+                    else if($_GET["error"]=="nomatch"){
+                      echo '<p class="text-danger" style="font-weight: bold; margin-top: 8px">Password does not match.</p>';
                     }
                 }
   ?>
@@ -70,11 +79,7 @@
     if($row = mysqli_fetch_array($checkEmail)){
       Login();
     }else{
-      echo '<div class="col-sm-10 col-lg-4 col-lg-offset-4  col-sm-offset-1">
-              <div class="alert alert-danger">
-                This email is not registered.
-              </div>
-            </div>';
+      header('Location: index.php?error=notregistered');
     }
   }
   // call check function when post form (login)

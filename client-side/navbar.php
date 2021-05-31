@@ -18,7 +18,7 @@
         });
       });
     </script>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: rgb(41, 41, 41); margin-bottom: 0px;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: rgb(41, 41, 41); margin-bottom: 0px; border-radius: 0;">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="food.php">ReadyToCook</a>
