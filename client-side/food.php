@@ -32,7 +32,7 @@
                 <p class="head">'.$post['name'].'</p><br>
                 <img src="uploads/'.$post['image'].'" ><br>
                 <div class="overlay">
-                  <div class="text">Date:'.$post['date'].'<p><br>By:'.$post['author'].'</p>
+                  <div class="text">Date: '.$post['date'].'<p><br>By: '.$post['author'].'</p>
                     <a class="post-btn" href="showMore.php?food='.$post['id'].'">Show more</a>
                   </div>
                 </div>
