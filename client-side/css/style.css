@@ -1,5 +1,5 @@
 body{
-  /* background-image: url("../uploads/bg4.jpg"); */
+  background-image: url("../uploads/bg4.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
@@ -28,8 +28,8 @@ body{
   height: 50px;
 }
 .form-group input:focus{
-  background-color: #f1f1f1 !important;
-  border-color: #5fcb00 !important;
+  background-color: #f1f1f1;
+  border-color: #5fcb00;
   border-width: 1px;
 }
 /* for label in form 'Not registered?' */
@@ -38,7 +38,7 @@ label{
 }
 /* for all links in website */
 a{
-  color: rgb(42, 90, 134) !important;
+  color: rgb(42, 90, 134);
 }
 /* design for modal */
 /* change header color for all modal*/
@@ -47,7 +47,7 @@ a{
 }
 /* blur body when modal is open */
 .modal .modal-body{
-  padding: 35px;
+  padding: 30px;
 }
 body.modal-open .background-container{
     filter: blur(4px);
@@ -61,7 +61,7 @@ body.modal-open .background-container{
 }
 .post img{
   width: 75%;
-  height: 16em;
+  height: 14em;
   margin-bottom: 20px;
   border-radius: 8% ;
   border: 1px #2a1086 solid;
@@ -75,7 +75,7 @@ body.modal-open .background-container{
 }
 /*  containerDiv is class for post */
 .containerDiv {
-  height: 25em;
+  height: 22em;
   position: relative;
 }
 
@@ -151,7 +151,7 @@ body.modal-open .background-container{
 
 .postInfo .head{
   background-color: #e1e1e1;
-  padding: 1px;
+  padding: 2px;
 }
 
 .postImage{
@@ -160,7 +160,7 @@ body.modal-open .background-container{
   height: 250px;
 }
 .postName{
-  font-weight: bold !important;
+  font-weight: bold;
   color: #422929;
 }
 .postDescription{
@@ -179,7 +179,7 @@ body.modal-open .background-container{
 }
 /* style for Comments */
 .Comments{
-  background-color: #bd9494;
+  background-color: #e9bcbc;
   padding: 10px;
   margin-left: 1px;
   margin-right: 1px;
@@ -193,15 +193,16 @@ body.modal-open .background-container{
 }
 /* navbar */
 .navbar a{
-  color: #ffffff !important;
+  color: #ffffff;
 }
 /* signUp form */
 #signup.modal .form-group input{
   border-radius: 0px;
   background-color: #f1f1f1;
-  border-width: 0px;
+  border-width: 2px;
   height: 50px;
 }
+
 /* style for modal add recipe */
 #addFood.modal .form-group input,#addFood.modal .form-group textarea{
   border-radius: 0px;
@@ -209,7 +210,7 @@ body.modal-open .background-container{
   border-width: 0px;
 }
 #addFood.modal .form-group input#file{
-  padding-bottom: 40px ;
+  padding-bottom: 40px;
 }
 #addFood.modal .form-group textarea{
   width: 100% !important;
@@ -241,7 +242,7 @@ body.modal-open .background-container{
 .prof-container{
   width: 50%;
   margin-left: 25%;
-  margin-top: 160px;
+  margin-top: 8%;
 }
 
 hr{

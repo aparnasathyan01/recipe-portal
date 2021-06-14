@@ -8,6 +8,24 @@
   $id= $_GET['food'];
   // get post from mysql by id
   $getPostInfo = mysqli_query($connect,"SELECT * FROM recipes WHERE id='$id'");
+  // call addComment function when form post
+  if(isset($_POST['submitLikes'])){
+    submitLikes();
+  }
+  // call addComment function when form post
+  if(isset($_POST['addComment'])){
+    addComment();
+  }
+  // call addComment function when form post
+  if(isset($_POST['submitDislikes'])){
+    submitDislikes();
+  }
+
+  if(isset($_POST['updateRecipe'])){
+    updateRecipe();
+    header('Location: '.$_SERVER['REQUEST_URI']);
+  }
+
   // check post has image, if not assign default image
   while($postInfo = mysqli_fetch_array($getPostInfo)){
     if(!$postInfo['image']){
@@ -16,24 +34,14 @@
     
     // for set post name ,author,image , description and comment form
     echo '<title>'.$postInfo['name'].'</title>
-    <div class="container" style="margin-top: 20px;">
+    <div class="container" style="margin-top: 20px; margin-left: 24%;">
       <center>
       <div class="row">
         <div class="col-lg-8 col-sm-10 col-xs-10 col-lg-offset-2">
           <div class="postInfo">
-            <div class="head"><h2 class="postName">'.$postInfo['name'].'</h2></div>';
+            <div class="head"><center><h2 class="postName">'.$postInfo['name'].'</h2></center></div>';
 
-          // delete recipe button added
-          
-          function submitdelete(){
-            require '../server-side/config.php';
-            $id= $_GET['food'];
-            $dd = "DELETE FROM recipes WHERE id='$id' AND author='$_SESSION[name]'";
-            $deletecomment = mysqli_query ($connect,"DELETE FROM comments WHERE postID='$id'");
-            $deletelikes = mysqli_query ($connect,"DELETE FROM likes WHERE postID='$id'");
-            $deletepost = mysqli_query ($connect,$dd);
-            header('Location: ../index.php');
-          }
+          // delete recipe button added     
 
           if(isset($_POST['submitdelete'])){
             submitdelete();
@@ -46,10 +54,9 @@
             <button type="button" class="btn btn-primary" style="color: white;" data-toggle="modal" data-target="#updateRecipe">Update Recipe</button>
             <input type="submit" name="submitdelete" class= "btn btn-danger" value = "Delete Recipe">
             </form></div>';
-
           }
             //delete recipe button over
-              echo '<h3 style="font-weight: bold;">Author: '.$postInfo['author'].'</h3>
+              echo '<h3 style="font-weight: bold; margin-top: 10px;">Author: '.$postInfo['author'].'</h3>
                 <br>
                 <div class="row">
                   <div class="col-lg-6">
@@ -60,53 +67,49 @@
                     <p class="postDescription">'.$postInfo['ingredients'].'</p>
                   </div></div>
                   <p style = "font-size: 20px; margin-top: 6px; font-weight: bold">Recipe</p>
-                  <p class="postDescription">'.$postInfo['description'].'</p><br/>';
+                  <p class="postDescription">'.$postInfo['description'].'</p><br/><div class="row">';
                 
                   $getLikesInfo = mysqli_query($connect, "SELECT COUNT(valueL) FROM likes WHERE valueL=1 GROUP BY postID HAVING postID =" . $postInfo['id']);
                   if($likes = mysqli_fetch_assoc($getLikesInfo)){
-                    echo '<div class="col-xs-1"><form method="POST" action="">
-                    <input type="submit" name="submitLikes" class= "btn btn-primary" value = "Like"> '.$likes["COUNT(valueL)"].'
+                    echo '<div class="col-2"><form method="POST" action="">
+                    <button type="submit" name="submitLikes" class= "btn btn-primary btn-sm">Like <span class="badge badge-light">'.$likes["COUNT(valueL)"].'</span></button>
                     </form></div>';
                   }
                   else{
-                    echo '<div class="col-xs-1"><form method="POST" action="#">
-                  <input type="submit" name="submitLikes" class= "btn btn-primary" value = "Like"> 0
+                    echo '<div class="col-2"><form method="POST" action="#">
+                    <button type="submit" name="submitLikes" class= "btn btn-primary btn-sm">Like <span class="badge badge-light">0</span></button>
                   </form></div>';
                   }
                   $getDislikesInfo = mysqli_query($connect, "SELECT COUNT(valueL) FROM likes WHERE valueL=-1 GROUP BY postID HAVING postID =" . $postInfo['id']);
                   if($dislikes = mysqli_fetch_assoc($getDislikesInfo)){
-                    echo '<div class="col-xs-1"><form method="POST" action="#">
-                    <input type="submit" name="submitDislikes" class= "btn btn-danger" value = "Dislike"> '.$dislikes["COUNT(valueL)"].'
+                    echo '<div class="col-1"><form method="POST" action="#">
+                    <button type="submit" name="submitDislikes" class= "btn btn-danger btn-sm">Dislike <span class="badge badge-light">'.$dislikes["COUNT(valueL)"].'</span></button>
                     </form></div>';
                   }
                   else{
-                    echo '<div class="col-xs-1"><form method="POST" action="#">
-                  <input type="submit" name="submitDislikes" class= "btn btn-danger" value = "Dislike"> 0
+                    echo '<div class="col-1"><form method="POST" action="#">
+                    <button type="submit" name="submitDislikes" class= "btn btn-danger btn-sm">Dislike <span class="badge badge-light">0</span></button>
                   </form></div>';
                   }
                 echo '
-                <br>
-                <div class="row">
-                <div class="col-lg-12">
-                <div class="head" style="padding-top: 15px">
-                  <form method="POST" action="#">
-                    <input name="commentText" class="postComment" type="text" required/>&ensp;
+                <div class="col-8"><form method="POST" action="#">
+                    <input name="commentText" class="postComment" type="text" size="32" required/>&ensp;
                     <input type="submit" name="addComment" class= "btn btn-primary" value = "Comment" style="margin-bottom: 3px; padding: 6px;">
                   </form>
-                </div></div></div>';
+                </div></div>';
     // get comments for database mysql
     $getComments = mysqli_query($connect,"SELECT DISTINCT comments.name,comments.date,comments.text FROM comments INNER JOIN recipes ON comments.postID = $id ORDER BY comments.date DESC");
     while($comment = mysqli_fetch_array($getComments)){
       echo'<div class="Comments row">
-            <div class="col-lg-3">
-              <img class="PersonImg" src="https://www.w3schools.com/howto/img_avatar.png">&emsp;
+            <div class="col-lg-3" style="margin-top: 4px;">
+              <img class="PersonImg" src="https://www.w3schools.com/howto/img_avatar2.png">&emsp;
               '.$comment['name'].'<br>
             </div>
-            <div class="col-lg-5" style="margin-top: 10px; text-align: justify;">
+            <div class="col-lg-5" style="margin-top: 12px; text-align: justify;">
             <p style="font-weight: bold;">'.$comment['text'].'</p>
             </div>
             <div class="col-lg-4" style="margin-top: 10px;">  
-            <p style="color: #ebcece;">'.$comment['date'].'</p>
+            <p>'.$comment['date'].'</p>
             </div>
           </div>
           <hr/>';
@@ -126,10 +129,6 @@
     $querybb = "INSERT INTO comments (name,text,postID,date) VALUES ('$name','$postText','$id',now())";
     $insert=mysqli_query ($connect,$querybb);
   }
-  // call addComment function when form post
-  if(isset($_POST['addComment'])){
-    addComment();
-  }
 
   function submitLikes(){
     // get connection database form config.php
@@ -146,10 +145,6 @@
     }
     $insert=mysqli_query ($connect,$querybb);
   }
-  // call addComment function when form post
-  if(isset($_POST['submitLikes'])){
-    submitLikes();
-  }
   function submitDislikes(){
     // get connection database form config.php
     require '../server-side/config.php';
@@ -164,10 +159,6 @@
       $querybb = "INSERT INTO likes (valueL, userID, postID) VALUES ('-1','$Uid', '$Gid')";
     }
     $insert=mysqli_query ($connect,$querybb);
-  }
-  // call addComment function when form post
-  if(isset($_POST['submitDislikes'])){
-    submitDislikes();
   }
  
 $getPostInfo = mysqli_query($connect,"SELECT * FROM recipes WHERE id='$id'");
@@ -200,10 +191,6 @@ echo '
   </div>
 </div>';
 
-  if(isset($_POST['updateRecipe'])){
-    updateRecipe();
-  }
-
   function updateRecipe(){
     require "../server-side/config.php";
     $id= $_GET['food'];
@@ -214,5 +201,15 @@ echo '
     $querybb = "UPDATE recipes SET name='$newDish', ingredients = '$newIngredients', description = '$newRecipe' WHERE id='$id'";
     $updateRecipe = mysqli_query($connect, $querybb);
   }
+
+  function submitdelete(){
+            require '../server-side/config.php';
+            $id= $_GET['food'];
+            $dd = "DELETE FROM recipes WHERE id='$id' AND author='$_SESSION[name]'";
+            $deletecomment = mysqli_query ($connect,"DELETE FROM comments WHERE postID='$id'");
+            $deletelikes = mysqli_query ($connect,"DELETE FROM likes WHERE postID='$id'");
+            $deletepost = mysqli_query ($connect,$dd);
+            header('Location: ../index.php');
+          }
 
 ?>
