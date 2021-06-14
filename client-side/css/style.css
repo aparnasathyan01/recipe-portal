@@ -9,12 +9,15 @@ body{
 .login-background{
   background-image: url("../uploads/background.jpg");
   background-size: cover;
+  height: calc(100vh - 56px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Login form */
 .loginForm{
   padding: 35px !important;
-  margin-top: 150px;
   background-color: white;
   box-shadow: 5px 5px 25px 5px;
   border-radius: 20px;
