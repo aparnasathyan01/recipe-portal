@@ -40,9 +40,7 @@
             </div>';
     }
     // pagination
-    echo'
-    <div style="margin-top: 20px; margin-left: 46%;"> <ul class="pagination">
-      <li class="page-item"><a class="page-link" href="?show=1">1</a></li>';
+    
       // get count of items to set pagination number
       $countRow=mysqli_query($connect,"SELECT COUNT(id) FROM recipes");
       $count = mysqli_fetch_array($countRow);
@@ -53,6 +51,8 @@
         if($row===10){
           $row=0;
           $pageNum++;
+          echo'<div style="margin-top: 20px; margin-left: 46%;"> <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="?show=1">1</a></li>';
           // to set pagination
           echo '<li class="page-item"><a class="page-link" href="?show='.$pageNum.'">'.$pageNum.'</a></li></ul></div>';
         }
@@ -63,7 +63,7 @@
         </div>
         <br/><br/>
         <!-- Footer -->
-        <div class="footer">
+        <div class="footer" style="margin-top: 20px;">
           <p>© 2021 Copyright: AICA</p>
         </div>
         </div>

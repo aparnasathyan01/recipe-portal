@@ -39,21 +39,20 @@ while($post = mysqli_fetch_array($getPosts)){
               </div>
             </div>';
     }
-    echo'</div>
-      <ul class="pagination">
-      <li ><a href="?show=1">1</a></li>';
       // get count of items to set pagination number
-      $countRow=mysqli_query($connect,"SELECT COUNT(id) FROM recipes");
+      $countRow=mysqli_query($connect,"SELECT COUNT(id) FROM recipes WHERE name LIKE '%$searchKey%'");
       $count = mysqli_fetch_array($countRow);
       $pageNum=1;
       $row=0;
-      for ($i=0;$i<=$count['0']-1;$i++) {
+      for ($i=0;$i<$count['0'];$i++) {
         $row++;
         if($row===10){
           $row=0;
           $pageNum++;
+          echo '<div style="margin-top: 20px; margin-left: 46%;"> <ul class="pagination">
+      <li class="page-item"><a class="page-link" href="?show=1">1</a></li>';
           // to set pagination
-          echo '<center><a href="?show='.$pageNum.'">'.$pageNum.'</a></li></center>';
+          echo '<li class="page-item"><a class="page-link" href="?show='.$pageNum.'">'.$pageNum.'</a></li></ul></div>';
         }
       }
   // close tag for end page
