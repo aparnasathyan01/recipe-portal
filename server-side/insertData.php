@@ -41,7 +41,7 @@
   strip of nori. Sprinkle with sesame seeds. Repeat to make a total of 8 onigiri.'
   ,now())
   ,
-  ('Plain Cake Doughnuts','4.jpg','John Doe ','2 cups all-purpose flour, ½ cup white sugar, 1 teaspoon salt, 1 tablespoon baking powder,
+  ('Plain Cake Doughnuts','4.jpg','John Doe','2 cups all-purpose flour, ½ cup white sugar, 1 teaspoon salt, 1 tablespoon baking powder,
   ¼ teaspoon ground cinnamon, 1 dash ground nutmeg, 2 tablespoons melted butter, ½ cup milk, 1 egg (beaten), 1 quart oil for frying','
   <br/>Step 1: Heat oil in deep-fryer to 375 degrees F (190 degrees C).
   <br/>Step 2: In a large bowl, sift together flour, sugar, salt, baking powder, cinnamon and nutmeg. Mix in butter until crumbly. Stir in milk and egg
