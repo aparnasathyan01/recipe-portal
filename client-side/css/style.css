@@ -183,15 +183,15 @@ body.modal-open .background-container{
 /* style for Comments */
 .Comments{
   background-color: #e9bcbc;
-  padding: 10px;
+  padding: 5px;
   margin-left: 1px;
   margin-right: 1px;
   border: 3px #422929 solid;
 }
 
 .PersonImg{
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   border-radius: 25px;
 }
 /* navbar */

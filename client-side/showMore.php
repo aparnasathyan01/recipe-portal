@@ -29,6 +29,17 @@ if (isset($_POST['updateRecipe'])) {
 	header('Location: ' . $_SERVER['REQUEST_URI']);
 }
 
+// delete comment when form posts
+if (isset($_POST['deleteComment']) && is_array($_POST['deleteComment'])) {
+	foreach($_POST['deleteComment'] as $id_to_delete => $dummy_value){
+        require '../server-side/config.php';
+	    $id = $GLOBALS['id'];
+	    $name = $_SESSION['name'];
+	    $querybb = "DELETE from comments WHERE id='$id_to_delete'";
+	    $insert = mysqli_query($connect, $querybb);
+    }
+}
+
 // check if post has image, if not assign default image
 while ($postInfo = mysqli_fetch_array($getPostInfo)) {
 	if (!$postInfo['image']) {
@@ -104,21 +115,27 @@ while ($postInfo = mysqli_fetch_array($getPostInfo)) {
             </div></div>';
 
 	// get comments for database
-	$getComments = mysqli_query($connect, "SELECT DISTINCT comments.name,comments.date,comments.text FROM comments INNER JOIN recipes ON comments.postID = $id ORDER BY comments.date DESC");
+	$getComments = mysqli_query($connect, "SELECT DISTINCT comments.id,comments.name,comments.date,comments.text FROM comments INNER JOIN recipes ON comments.postID = $id ORDER BY comments.date DESC");
 	while ($comment = mysqli_fetch_array($getComments)) {
 		echo '<div class="Comments row">
-            <div class="col-lg-3" style="margin-top: 4px;">
+            <div class="col-lg-2" style="margin-top: 20px;">
               <img class="PersonImg" src="https://www.w3schools.com/howto/img_avatar2.png">&emsp;
-              ' . $comment['name'] . '<br>
             </div>
-            <div class="col-lg-5" style="margin-top: 12px; text-align: justify;">
+            <div class="col-lg-6" style="margin-top: 12px; text-align: justify;">
+			<p>' . $comment['name'] . ':</p>
             <p style="font-weight: bold;">' . $comment['text'] . '</p>
             </div>
             <div class="col-lg-4" style="margin-top: 10px;">  
-            <p>' . $comment['date'] . '</p>
-            </div>
-          </div>
-          <hr/>';
+            <p>' . $comment['date'] . '</p>';
+			$commentID = $comment['id'];
+			if($comment['name']===$_SESSION['name']){
+				?>
+				<form method="POST" action="#">
+				<div style="margin: 5px;";
+				<button type="submit" name="deleteComment[<?php echo $commentID;?>]" class= "btn btn-danger btn-sm">Delete</button></div></form>
+				<?php
+			}
+		echo '</div></div><hr/>';
 	}
 	
 	echo '</div>
@@ -208,7 +225,6 @@ function updateRecipe()
 {
 	require "../server-side/config.php";
 	$id = $_GET['food'];
-	// echo("Error description: 1" . mysqli_error($connect));
 	$newDish = $_POST['dishName'];
 	$newIngredients = $_POST['ingredientsUpdate'];
 	$newRecipe = $_POST['descriptionUpdate'];
