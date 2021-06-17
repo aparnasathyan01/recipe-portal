@@ -4,6 +4,6 @@ $server = "localhost";
 $username = "root";
 $password = "";
 $DBname="foodRecipes";
-// connect to server
+// connect to the server
 $connect = new mysqli($server, $username, $password,$DBname);
 ?>

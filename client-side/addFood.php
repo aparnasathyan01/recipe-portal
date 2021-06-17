@@ -26,11 +26,14 @@
 	</div>
 </div>
 <?php
-$Logedin = $_SESSION['Logedin'];
+
+// check if logged in
+$LoggedIn = $_SESSION['LoggedIn'];
 function addFood()
 {
-	// get connection database form config.php
+	// get connection from config.php
 	require "../server-side/config.php";
+
 	// check if image name already added to database
 	if (isset($_FILES["image"]["name"])) {
 		$name = $_FILES["image"]["name"];
@@ -47,14 +50,18 @@ function addFood()
 				if (move_uploaded_file($tmp_name, $location . $name)) {
 				}
 			}
-			// get information from post
+
+			// get information from the form
 			$image = $_FILES["image"]["name"];
 			$name = $_POST['name'];
 			$ingredients = $_POST['ingredients'];
 			$description = $_POST['description'];
 			$author = $_SESSION['name'];
+			
+			//insert into the database
 			$insertRecipe = "INSERT INTO recipes (name,image,author,ingredients,description,date) VALUES ('$name','$image','$author','$ingredients','$description',now())";
 			$data = mysqli_query($connect, $insertRecipe);
+
 			// check if post published
 			if ($data) {
 				echo '<div class="container alert alert-success" style="margin-top: 10px;">
@@ -63,7 +70,8 @@ function addFood()
 		}
 	}
 }
-// call addFood function if got addFood post
+
+// call addFood function if got addFood form post
 if (isset($_POST['addFood'])) {
 	addFood();
 }
