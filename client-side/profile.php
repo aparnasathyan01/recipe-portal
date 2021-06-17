@@ -7,6 +7,7 @@ require '../server-side/config.php';
 $name = $_SESSION['name'];
 $getRecipeInfo = mysqli_query($connect, "SELECT COUNT(id) FROM recipes WHERE author = " . $name);
 
+//profile view
 echo '<title>Profile</title>
     <div class="prof-container">
       <center>
@@ -39,6 +40,7 @@ echo '</ul>
   </html>
   <!-- Footer -->';
 
+//update account form
 echo '<div class="modal fade" id="updateAccount" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -62,6 +64,7 @@ echo '<div class="modal fade" id="updateAccount" role="dialog">
   </div>
 </div>';
 
+//delete account details function
 function delAccount()
 {
 	require '../server-side/config.php';
@@ -77,10 +80,10 @@ function delAccount()
 	header('Location: ../index.php');
 }
 
+//update account details function
 function updateAccount()
 {
 	require '../server-side/config.php';
-	// echo("Error description: 1" . mysqli_error($connect));
 	$Uid = $_SESSION['user'];
 	$oldName = $_SESSION['name'];
 	$oldMail = $_SESSION['mail'];
@@ -92,5 +95,5 @@ function updateAccount()
 	$updateAuthor = mysqli_query($connect, $queryRecipes);
 	$_SESSION['name'] = $updateName;
 	$_SESSION['mail'] = $updateMail;
-	header('Location: ../index.php');
+	header('Location: ' . $_SERVER['REQUEST_URI']);
 }
