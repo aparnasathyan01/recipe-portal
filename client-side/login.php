@@ -5,15 +5,20 @@
 		if (isset($_GET["error"])) {
 			if ($_GET["error"] == "invaliddetails") {
 				echo '<p class="text-danger" style="font-weight: bold; margin-top: 8px">Invalid Details.</p>';
-			} else if ($_GET["error"] == "none") {
+			} 
+			else if ($_GET["error"] == "none") {
 				echo '<p class="text-success" style="font-weight: bold; margin-top: 8px">Success! Your registration is complete!</p>';
-			} else if ($_GET["error"] == "alreadyregistered") {
+			} 
+			else if ($_GET["error"] == "alreadyregistered") {
 				echo '<p class="text-danger" style="font-weight: bold; margin-top: 8px">Email is already registered.</p>';
-			} else if ($_GET["error"] == "notregistered") {
+			} 
+			else if ($_GET["error"] == "notregistered") {
 				echo '<p class="text-danger" style="font-weight: bold; margin-top: 8px">Email is not registered. </p>';
-			} else if ($_GET["error"] == "passwordshort") {
+			} 
+			else if ($_GET["error"] == "passwordshort") {
 				echo '<p class="text-danger" style="font-weight: bold; margin-top: 8px">Password must be at least 8 characters.</p>';
-			} else if ($_GET["error"] == "nomatch") {
+			} 
+			else if ($_GET["error"] == "nomatch") {
 				echo '<p class="text-danger" style="font-weight: bold; margin-top: 8px">Password does not match.</p>';
 			}
 		}
@@ -31,49 +36,60 @@
 	</div>
 </div>
 <?php
-// check if user is logedin
-if (isset($_SESSION['Logedin'])) {
-	$Logedin = $_SESSION['Logedin'];
-	if ($Logedin === 1) {
+
+// check if user is LoggedIn
+if (isset($_SESSION['LoggedIn'])) {
+	$LoggedIn = $_SESSION['LoggedIn'];
+	if ($LoggedIn === 1) {
 		header('Location: client-side/food.php');
 	}
-} else {
-	$Logedin = 0;
+} 
+else {
+	$LoggedIn = 0;
 }
+
 //  Login function
 function Login()
 {
-	// get connection database form config.php
+	// get connection from config.php
 	require "server-side/config.php";
+
 	$email = $_POST['email'];
 	$password =  md5($_POST['password']);
-	// check user email and password match
+
+	// check if user email and password match
 	$checkUser = mysqli_query($connect, "SELECT * FROM users WHERE email = '$email' AND password='$password'");
 	$count = mysqli_num_rows($checkUser);
-	// check if got no data from database
+
+	// check if data exists
 	if ($count == 0) {
 		header('Location: index.php?error=invaliddetails');
-	} else {
-		// if user and password correct
+	} 
+	else {
+		// if user and password are correct
 		while ($data = mysqli_fetch_array($checkUser)) {
 			// set sessions
 			$_SESSION['user'] = $data['id'];
 			$_SESSION['name'] = $data['name'];
 			$_SESSION['mail'] = $data['email'];
-			$_SESSION['Logedin'] = 1;
+			$_SESSION['LoggedIn'] = 1;
 			header('Location: client-side/food.php');
 		}
 	}
 }
+
 function check()
 {
-	// get connection database form config.php
+	// get connection from config.php
 	require "server-side/config.php";
+
 	//  check if email is defined in database
 	$checkEmail = mysqli_query($connect, "SELECT * FROM users WHERE email = '$_POST[email]'");
 	if ($row = mysqli_fetch_array($checkEmail)) {
 		Login();
-	} else {
+	} 
+	else {
+		//show error message
 		header('Location: index.php?error=notregistered');
 	}
 }

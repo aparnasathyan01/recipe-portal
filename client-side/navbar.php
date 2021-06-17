@@ -27,12 +27,12 @@
 			</div>
 			<?php
 			session_start();
-			// check if user is logedin
-			if (isset($_SESSION['Logedin'])) {
-				if ($_SESSION['Logedin'] === 1) {
+			// check if user is LoggedIn
+			if (isset($_SESSION['LoggedIn'])) {
+				if ($_SESSION['LoggedIn'] === 1) {
 				}
 			} else {
-				$_SESSION['Logedin'] = 0;
+				$_SESSION['LoggedIn'] = 0;
 			}
 			// Logout function
 			function Logout()
@@ -47,10 +47,10 @@
 			if (isset($_GET['Logout'])) {
 				Logout();
 			}
-			// check if Logedin session is defined
-			// Logedin here is used to show recipes search , add recipe and logout
+			// check if LoggedIn session is defined
+			// LoggedIn here is used to show recipes search , add recipe and logout
 
-			if ($_SESSION['Logedin'] === 1) {
+			if ($_SESSION['LoggedIn'] === 1) {
 				// header('Location: ../');
 
 				// check food parameter is set to show add recipe and search feature - not show when open post information

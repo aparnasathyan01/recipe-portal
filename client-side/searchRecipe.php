@@ -1,7 +1,7 @@
 <?php
 require 'navbar.php';
 require 'header.php';
-// get connection database form config.php
+// get connection from config.php
 require '../server-side/config.php';
 // set default rows (to get only 9 post )
 $startRow = 0;

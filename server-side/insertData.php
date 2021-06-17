@@ -1,9 +1,11 @@
 <?php
-  // get conneciton database form config.php
+  // get connection from config.php
   require 'config.php';
-  // insertUser to insert user  with 123123123 password
+
+  // insertUser to insert user  with johndoe101 password
   $insertUser="INSERT INTO users (email,name,password) VALUES ('johndoe@gmail.com','John Doe','e2a6613139fcd9a7b2589750fc09979a')";
-  // insertData is for insert one user and some recipes at first time
+
+  // insertData to insert one user and some recipes
   $insertData="INSERT INTO recipes (name,image,author,ingredients, description,date) VALUES ('Juicy Roasted Chicken','1.jpg','John Doe',
   '1 (3 pound) whole chicken giblets removed, salt and black pepper to taste, 1 tablespoon onion powder (to taste),
   ½ cup margarine (divided), 1 stalk celery (leaves removed)', '
@@ -180,7 +182,7 @@
   <br/>Step 7: Remove the foil and bake for another 20 minutes, Serve hot.',now())";
 
 
-  // check if database has recipes or not
+  // check if the database has recipes
   $checkData = mysqli_query($connect,"SELECT id FROM recipes");
   if(!$data = mysqli_fetch_array($checkData)){
     mysqli_query($connect,$insertUser);

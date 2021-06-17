@@ -1,3 +1,4 @@
+<!-- sign up modal -->
 <div class="modal fade" id="signUp" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -18,10 +19,6 @@
 					<div class="form-group">
 						<input type="password" class="form-control" id="password2" placeholder="Re-enter your password" name="password2" required>
 					</div>
-
-					<!-- <div class="checkbox">
-          <label><input type="checkbox" name="autoLogin">Login after register?</label>
-        </div> -->
 					<button type="reset" name="resetsignUp" class="btn btn-primary">Reset</button>
 					<button type="submit" name="signUp" class="btn btn-primary">Sign Up</button>
 				</form>
@@ -33,16 +30,19 @@
 <?php
 // error variable to count errors
 $error = 0;
+
 //  Function NewUser to add user to database
 function NewUser()
 {
-	// get connection database form config.php
+	// get connection from config.php
 	require "server-side/config.php";
 	//  get infromation from post
 	$name = $_POST['name'];
 	$email = $_POST['email'];
 	// hash password with md5
 	$password =  md5($_POST['password']);
+
+	// insert data into database
 	$insertUser = "INSERT INTO users (name,email,password) VALUES ('$name','$email','$password')";
 	$data = mysqli_query($connect, $insertUser);
 	// check if user is inserted in database
@@ -50,21 +50,27 @@ function NewUser()
 		header('Location: index.php?error=none');
 	}
 }
+
 // function checkUser to check post information
 function checkUser()
 {
-	// get connection database form config.php
+	// get connection from config.php
 	require "server-side/config.php";
 	// check if password fields match
 	if (($_POST['password']) !== ($_POST['password2'])) {
 		$GLOBALS['error']++;
+		// show error message
 		header('Location: index.php?error=nomatch');
 	}
+
 	// check if password field less than 8 character
 	if (strlen($_POST['password']) < 7) {
 		$GLOBALS['error']++;
+
+		// show error message
 		header('Location: index.php?error=passwordshort');
 	}
+
 	// check if email not empty in post
 	if (!empty($_POST['email'])) {
 		$GLOBALS['id'] = mysqli_query($connect, "SELECT id FROM users WHERE email = '$_POST[email]'");
@@ -73,11 +79,14 @@ function checkUser()
 			if ($GLOBALS['error'] === 0) {
 				NewUser();
 			}
-		} else {
+		} 
+		else {
+			// show error message
 			header('Location: index.php?error=alreadyregistered');
 		}
 	}
 }
+
 // call checkUser function if got signUp post
 if (isset($_POST['signUp'])) {
 	checkUser();
