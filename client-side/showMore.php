@@ -31,7 +31,7 @@ if (isset($_POST['updateRecipe'])) {
 
 // delete comment when form posts
 if (isset($_POST['deleteComment']) && is_array($_POST['deleteComment'])) {
-	foreach($_POST['deleteComment'] as $id_to_delete => $dummy_value){
+	foreach($_POST['deleteComment'] as $id_to_delete => $useless_value){
         require '../server-side/config.php';
 	    $id = $GLOBALS['id'];
 	    $name = $_SESSION['name'];
@@ -131,7 +131,7 @@ while ($postInfo = mysqli_fetch_array($getPostInfo)) {
 			if($comment['name']===$_SESSION['name']){
 				?>
 				<form method="POST" action="#">
-				<div style="margin: 5px;";
+				<div style="margin: 5px;">
 				<button type="submit" name="deleteComment[<?php echo $commentID;?>]" class= "btn btn-danger btn-sm">Delete</button></div></form>
 				<?php
 			}
