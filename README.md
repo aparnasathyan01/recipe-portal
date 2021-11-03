@@ -1,4 +1,4 @@
-# food-recipes project
+# Food-Recipes Project
 
 To run the project should have :
 
